@@ -4,27 +4,52 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3feb614-679c-4f42-8017-763c473cc0cf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/configuration/AppConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/IEntitySaver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/IUserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/UserDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/City.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/Country.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/Month.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/Picture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/Writeable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index_eng.html" afterDir="false" />
+    <list default="true" id="e3feb614-679c-4f42-8017-763c473cc0cf" name="Changes" comment="model finished">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/CountriesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/YearsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/CommonDateElements.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/ICityDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/ICountryDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/IMonthDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/IPicturesDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/CityDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/CountryDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/EntitySaveImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/MonthDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/PictureDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/CitiesForAGivenCountry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/MonthsForAGivenYear.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/ICitiesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/ICountriesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/IPicturesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/CitiesServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/CountriesServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/PicturesServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/session/SessionObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/cities.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/countries.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pictures.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/years.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/yearsAndCities.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/configuration/AppConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/configuration/AppConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/IEntitySaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/IEntitySaver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/UserDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/Country.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/Picture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/Picture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/AuthenticationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index_eng.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +59,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -79,6 +104,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -128,8 +154,16 @@
       <workItem from="1659769333285" duration="1144000" />
       <workItem from="1659771393377" duration="5308000" />
       <workItem from="1659777027249" duration="2152000" />
-      <workItem from="1659779649281" duration="4393000" />
+      <workItem from="1659779649281" duration="66059000" />
     </task>
+    <task id="LOCAL-00001" summary="model finished">
+      <created>1659786272864</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1659786272864</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,5 +179,24 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="model finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="model finished" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/CommonDateElements.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <breakpoint type="java-exception">
+          <properties class="org.springframework.expression.spel.SpelEvaluationException" package="org.springframework.expression.spel" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

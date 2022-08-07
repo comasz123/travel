@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Travel Memories</title>
+</head>
+<body>
+
+<div id="content">
+    <form method="post">
+        <input type="text" placeholder="Login" th:field="*{userModel.login}" id="login">
+        <input type="text" placeholder="Name" th:field="*{userModel.name}" id="name">
+        <br>
+        <input type="password" placeholder="Hasło" th:field="*{userModel.password}" id="password">
+        <input type="password" placeholder="Powtórz hasło" name="password2" id="password2">
+        <br>
+
+        <label>Access: </label>
+        <input type="radio" name="status" value="ADMIN"/>ADMIN
+        <input type="radio" name="status" value="USER">USER
+        <br>
+        <input type="submit" value="OK">
+    </form>
+</div>
+</body>
+</html>

@@ -1,16 +1,17 @@
 package me.tomaszterlecki.travel.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "tcountry")
 public class Country implements Writeable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(unique = true)
     private String nameEng;
+    @Column(unique = true)
     private String namePol;
 
     public Country() {

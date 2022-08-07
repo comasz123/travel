@@ -1,0 +1,60 @@
+
+
+.logo {
+    height: 150px;
+    width: 150px;
+    display: inline-block;
+}
+
+.logo img {
+    height: 100%;
+    width: 100%;
+}
+.menu-div {
+    height: 170px;
+    width: 80%;
+    border-bottom: 1px solid cornflowerblue;
+}
+
+#menu-eng a {
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    margin: 50px 50px 50px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: inline-block;
+    transition: color, background 0.5s;
+}
+#menu-eng a:hover {
+    background: cornflowerblue;
+    color: white;
+}
+.city {
+    display: inline-block;
+}
+.picture-horizontal {
+    width: 200px;
+    height: 115px;
+}
+.picture-vertical {
+    width: 115px;
+    height: 200px;
+}
+.picture img {
+    width: 100%;
+    height: 100%;
+}
+.picture {
+    display: inline-block;
+    margin: 5px;
+}
+.heading-years {
+    height: 30px;
+    margin: 20px;
+}
+.heading-years-item {
+    font-size: 20px;
+    display: inline-block;
+    margin: 10px;
+}

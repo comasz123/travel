@@ -60,6 +60,13 @@ public class User implements Writeable {
         this.password = password;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     public enum Status {
         ADMIN,
         USER,

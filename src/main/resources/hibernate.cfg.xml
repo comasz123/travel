@@ -12,7 +12,7 @@
         <property name="hibernate.connection.password">Lama</property>
 
         <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="connection.pool_size">20</property>
 
         <mapping class="me.tomaszterlecki.travel.model.Month"/>

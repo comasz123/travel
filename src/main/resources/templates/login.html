@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/main.css">
+<!--    <script src="/validation.js"></script>-->
+    <title>Travel Memories</title>
+</head>
+<body>
+<div th:replace="fragments.html :: #menu-eng"></div>
+<div id="content">
+    <form method="post">
+        <input type="text" placeholder="Login" th:field="*{userModel.login}" id="login">
+        <input type="password" placeholder="Hasło" th:field="*{userModel.password}" id="password">
+        <input type="submit" value="Zaloguj">
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/main.css">
+    <!--    <script src="/validation.js"></script>-->
+    <title>Travel Memories</title>
+</head>
+<body>
+
+<div th:replace="fragments.html :: #menu-eng"></div>
+<div id="content">
+
+    <div class="years-list" th:each="element : ${elements}">
+        <div class="years-and-months">
+            <div class="years" th:text="${element.getYear()}">
+            </div>
+            <div class="months" th:each="month: ${element.getMonths()}">
+                <a class="month" th:text="${month}" th:href="@{
+                     /years/{year}/{month}(year=${element.getYear()}, month=${month})}"></a>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

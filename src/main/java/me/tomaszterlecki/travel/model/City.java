@@ -8,6 +8,7 @@ public class City implements Writeable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nameEng;
+
     private String namePol;
     @ManyToOne
     private Country country;

@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan("me.tomaszterlecki.travel")
 public class AppConfiguration {
-
     @Bean
     public SessionFactory sessionFactory () {
         return new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
