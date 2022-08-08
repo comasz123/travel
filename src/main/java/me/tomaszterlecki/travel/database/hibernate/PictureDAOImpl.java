@@ -12,6 +12,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 import java.util.*;
 
 @Repository
@@ -23,40 +24,22 @@ public class PictureDAOImpl implements IPicturesDAO {
     @Autowired
     ICityDAO cityDAO;
 
-    @Override
-    public int[] getYearsByCity(City city) {
-        Session session = sessionFactory.openSession();
-        Query<Picture> query = session.createQuery
-                ("FROM me.tomaszterlecki.travel.model.Picture WHERE city =:city");
-        query.setParameter("city", city);
-        List <Picture> pictures = query.getResultList();
-        session.close();
-        int[] result = getYears(pictures);
-        return result;
-    }
-    @Override
-    public List<MonthsForAGivenYear> yearsAndMonths (){
+
+
+    public List<MonthsForAGivenYear> yearsAndMonths() {
         List<MonthsForAGivenYear> result = new ArrayList<>();
         int[] years = extractYears();
         for (int i = 0; i < years.length; i++) {
             String[] months = getMonthsForAGivenYear(years[i]);
-            MonthsForAGivenYear item = new MonthsForAGivenYear(years[i],months);
+            MonthsForAGivenYear item = new MonthsForAGivenYear(years[i], months);
             result.add(item);
         }
         return result;
     }
+
+
     @Override
-    public int[] extractYears() {
-        Session session = sessionFactory.openSession();
-        Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.Picture");
-        List<Picture> allPictures = query.getResultList();
-        int[] result = getYears(allPictures);
-        session.close();
-        Arrays.sort(result);
-        return result;
-    }
-    @Override
-    public List<City> getAllCitiesForADate(int year, String monthString){
+    public List<City> getAllCitiesForADate(int year, String monthString) {
         Month monthObject = monthDAO.getMonthByNameEng(monthString);
         Session session = sessionFactory.openSession();
         Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.Picture WHERE year=:year AND month=:month");
@@ -66,7 +49,7 @@ public class PictureDAOImpl implements IPicturesDAO {
         session.close();
 
         Set<City> resultSet = new HashSet<>();
-        for (Picture picture : resultPictures ) {
+        for (Picture picture : resultPictures) {
             resultSet.add(picture.getCity());
         }
         List<City> result = new ArrayList<>();
@@ -75,10 +58,10 @@ public class PictureDAOImpl implements IPicturesDAO {
         }
         return result;
     }
+
     @Override
-    public List<Picture> getPitcturesByDate(int year, String monthString, String cityString){
+    public List<Picture> getPitcturesByDateAndCity(int year, String monthString, City city) {
         Month monthObject = monthDAO.getMonthByNameEng(monthString);
-        City city = cityDAO.getCityByName(cityString);
         Session session = sessionFactory.openSession();
         Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.Picture WHERE " +
                 "year=:year AND month=:month AND city=:city");
@@ -89,7 +72,51 @@ public class PictureDAOImpl implements IPicturesDAO {
         session.close();
         return resultPictures;
     }
-    public String[] getMonthsForAGivenYear(int year){
+
+    @Override
+    public List<Picture> getPicturesByCity(City city) {
+        Session session = sessionFactory.openSession();
+        Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.Picture WHERE city=:city");
+        query.setParameter("city", city);
+        List<Picture> picturesList = query.getResultList();
+        return picturesList;
+    }
+    @Override
+    public List<MonthsForAGivenYear> getDatesForACity(City city) {
+        List<Picture> pictureList = getPicturesByCity(city);
+        int[] years = extractYearsForACity(city);
+        List<MonthsForAGivenYear> result = new ArrayList<>();
+        for (int i = 0; i < years.length; i++) {
+            String[]months = getMonthsForAGivenYear(years[i]);
+            MonthsForAGivenYear element = new MonthsForAGivenYear(years[i], months);
+            result.add(element);
+        }
+        return result;
+    }
+
+
+    //    ------- metody prywatne------------
+    private int[] extractYears() {
+        Session session = sessionFactory.openSession();
+        Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.Picture");
+        List<Picture> allPictures = query.getResultList();
+        int[] result = getYears(allPictures);
+        session.close();
+        Arrays.sort(result);
+        return result;
+    }
+    private int[] extractYearsForACity(City city) {
+        Session session = sessionFactory.openSession();
+        Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.Picture WHERE city=:city");
+        query.setParameter("city", city);
+        List<Picture> allPicturesForACity = query.getResultList();
+        int[] result = getYears(allPicturesForACity);
+        session.close();
+        Arrays.sort(result);
+        return result;
+    }
+
+    private String[] getMonthsForAGivenYear(int year) {
         Session session = sessionFactory.openSession();
         Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.Picture WHERE year=:year");
         query.setParameter("year", year);
@@ -99,34 +126,45 @@ public class PictureDAOImpl implements IPicturesDAO {
         return result;
     }
 
-    private String[] getMonthsEng(List<Picture> pictures){
+    private String[] getMonthsEng(List<Picture> pictures) {
         Set<String> monthsSet = new HashSet<>();
-        for(Picture picture: pictures){
+        for (Picture picture : pictures) {
             monthsSet.add(picture.getMonth().getNameEng());
         }
         int list = monthsSet.size();
-        String [] result = new String[list];
+        String[] result = new String[list];
         int i = 0;
         for (String month : monthsSet) {
-            result[i]=month;
+            result[i] = month;
             i++;
         }
         return result;
 
     }
-    private int[] getYears(List<Picture> pictures){
+
+    private int[] getYears(List<Picture> pictures) {
         Set<Integer> yearSet = new HashSet<>();
         for (Picture picture : pictures) {
             yearSet.add(picture.getYear());
         }
 
         int list = yearSet.size();
-        int [] result = new int[list];
+        int[] result = new int[list];
         int i = 0;
         for (int year : yearSet) {
-            result[i]=year;
+            result[i] = year;
             i++;
         }
+        return result;
+    }
+    private int[] getYearsByCity(City city) {
+        Session session = sessionFactory.openSession();
+        Query<Picture> query = session.createQuery
+                ("FROM me.tomaszterlecki.travel.model.Picture WHERE city =:city");
+        query.setParameter("city", city);
+        List<Picture> pictures = query.getResultList();
+        session.close();
+        int[] result = getYears(pictures);
         return result;
     }
 

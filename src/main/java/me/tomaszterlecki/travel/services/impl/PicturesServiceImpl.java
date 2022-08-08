@@ -23,12 +23,13 @@ public class PicturesServiceImpl implements IPicturesService {
         List<City> result = picturesDAO.getAllCitiesForADate(year, month);
         return result;
     }
-    public List<Picture> getPitcturesByDate(int year, String month, String city){
-        List<Picture> result = picturesDAO.getPitcturesByDate(year, month, city);
+    public List<Picture> getPitcturesByDateAndCity(int year, String month, City city){
+        List<Picture> result = picturesDAO.getPitcturesByDateAndCity(year, month, city);
         return result;
     }
-    public List<Picture> getDatesForACity(String cityName){
-       return null;
+    public List<MonthsForAGivenYear> getDatesForACity(City city){
+        List<MonthsForAGivenYear> result = picturesDAO.getDatesForACity(city);
+       return result;
     }
 
 }

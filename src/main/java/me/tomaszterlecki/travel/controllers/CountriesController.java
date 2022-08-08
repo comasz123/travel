@@ -1,6 +1,7 @@
 package me.tomaszterlecki.travel.controllers;
 
 import me.tomaszterlecki.travel.model.CitiesForAGivenCountry;
+import me.tomaszterlecki.travel.model.City;
 import me.tomaszterlecki.travel.model.Country;
 import me.tomaszterlecki.travel.services.ICitiesService;
 import me.tomaszterlecki.travel.services.ICountriesService;
@@ -29,8 +30,10 @@ public class CountriesController {
     }
     @RequestMapping(value="/countries/{id}", method = RequestMethod.GET)
     public String displayCities(Model model, @PathVariable int id){
-        model.addAttribute("city", citiesService.getCityById(id));
-        return "";
+        City city = citiesService.getCityById(id);
+        model.addAttribute("city", city);
+        model.addAttribute("elements", picturesService.getDatesForACity(city));
+        return "cities";
     }
 
 }

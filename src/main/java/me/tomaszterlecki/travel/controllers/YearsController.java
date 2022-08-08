@@ -30,16 +30,4 @@ public class YearsController {
         model.addAttribute("cities", cities);
         return "yearsAndCities";
     }
-    @RequestMapping(value="/years/{year}/{month}/{city}", method = RequestMethod.GET)
-    public String picturesForADate(Model model,
-                                   @PathVariable int year,
-                                   @PathVariable String month,
-                                   @PathVariable String city){
-        List<Picture> pictures = picturesService.getPitcturesByDate(year, month, city);
-        model.addAttribute("year", year);
-        model.addAttribute("month", month);
-        model.addAttribute("city", city);
-        model.addAttribute("pictures", pictures);
-        return "pictures";
-    }
 }

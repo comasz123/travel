@@ -13,7 +13,7 @@
     <div class="heading-years">
         <div class="heading-years-item" th:text="${year}"></div>
         <div class="heading-years-item" th:text="${month}"></div>
-        <div class="heading-years-item" th:text="${city}"></div>
+        <div class="heading-years-item" th:text="${city.getNameEng()}"></div>
     </div>
     <div class="picture" th:each="picture : ${pictures}">
         <div th:class="${picture.getOrientation().equals(picture.getOrientation().VERTICAL) ? 'picture-vertical' : 'picture-horizontal'}">

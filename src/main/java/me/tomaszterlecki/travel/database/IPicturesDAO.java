@@ -7,11 +7,11 @@ import me.tomaszterlecki.travel.model.Picture;
 import java.util.List;
 
 public interface IPicturesDAO {
-    int[] getYearsByCity(City city);
-    int[] extractYears();
-    String[] getMonthsForAGivenYear(int year);
     List<MonthsForAGivenYear> yearsAndMonths ();
     List<City> getAllCitiesForADate(int year, String month);
-    List<Picture> getPitcturesByDate(int year, String month, String city);
+    List<Picture> getPitcturesByDateAndCity(int year, String month, City city);
+    List<Picture> getPicturesByCity(City city);
+    List<MonthsForAGivenYear> getDatesForACity(City cityName);
+
 
 }

@@ -11,6 +11,7 @@ public interface IPicturesService {
 
     public List<MonthsForAGivenYear> yearsAndMonths ();
     public List<City> getAllCitiesForADate (int year, String month);
-    List<Picture> getPitcturesByDate(int year, String month, String city);
-    List<Picture> getDatesForACity(String cityName);
+    List<Picture> getPitcturesByDateAndCity(int year, String month, City city);
+    List<MonthsForAGivenYear> getDatesForACity(City city);
+
 }

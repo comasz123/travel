@@ -1,8 +1,8 @@
 
 
 .logo {
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
     display: inline-block;
 }
 
@@ -11,7 +11,7 @@
     width: 100%;
 }
 .menu-div {
-    height: 170px;
+    height: 110px;
     width: 80%;
     border-bottom: 1px solid cornflowerblue;
 }

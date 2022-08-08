@@ -16,8 +16,8 @@
     </div>
     <div th:each="city : ${cities}">
         <a class="city" th:text="${city.getNameEng()}" th:href="@{
-                     /years/{year}/{month}/{city}
-                     (year=${year}, month=${month}, city = ${city.getNameEng()})}">, </a>
+                     /pictures/{year}/{month}/{id}
+                     (year=${year}, month=${month}, id=${city.getId()})}">, </a>
         <div class="city" th:text="${city.getCountry().getNameEng()}"></div>
     </div>
 

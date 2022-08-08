@@ -14,7 +14,7 @@
     <div class="country-list" th:each="element : ${elements}">
         <div th:text="${element.getCountry()}"></div>
         <div class="city-list" th:each="city : ${element.getCities()}">
-            <a th:text="${city.getNameEng()}" th:href="@{/country/{city}(city=${city.getId()})}"></a>
+            <a th:text="${city.getNameEng()}" th:href="@{/countries/{city}(city=${city.getId()})}"></a>
         </div>
     </div>
 
