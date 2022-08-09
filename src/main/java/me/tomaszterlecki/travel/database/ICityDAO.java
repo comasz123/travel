@@ -7,6 +7,5 @@ import java.util.List;
 
 public interface ICityDAO {
     List<City> getAllCitiesByCountry(Country country);
-    City getCityByName(String cityName);
     City getCityById(int id);
 }

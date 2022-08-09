@@ -27,15 +27,6 @@ public class CityDAOImpl implements ICityDAO {
         return result;
     }
     @Override
-    public City getCityByName(String cityName){
-        Session session = sessionFactory.openSession();
-        Query<City> query = session.createQuery("FROM me.tomaszterlecki.travel.model.City WHERE nameEng=:cityName");
-        query.setParameter("cityName", cityName);
-        City result = query.getSingleResult();
-        session.close();
-        return result;
-    }
-    @Override
     public City getCityById(int cityId){
         Session session = sessionFactory.openSession();
         Query<City> query = session.createQuery("FROM me.tomaszterlecki.travel.model.City WHERE id=:cityId");
@@ -44,5 +35,4 @@ public class CityDAOImpl implements ICityDAO {
         session.close();
         return result;
     }
-
 }

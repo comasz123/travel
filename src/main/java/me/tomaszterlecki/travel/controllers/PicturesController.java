@@ -26,7 +26,7 @@ public class PicturesController {
                                    @PathVariable String month,
                                    @PathVariable int id){
         City city = citiesService.getCityById(id);
-        List<Picture> pictures = picturesService.getPitcturesByDateAndCity(year, month, city);
+        List<Picture> pictures = picturesService.getPicturesByDateAndCity(year, month, city);
         model.addAttribute("year", year);
         model.addAttribute("month", month);
         model.addAttribute("city", city);

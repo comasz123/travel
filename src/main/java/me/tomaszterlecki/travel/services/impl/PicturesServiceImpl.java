@@ -23,8 +23,8 @@ public class PicturesServiceImpl implements IPicturesService {
         List<City> result = picturesDAO.getAllCitiesForADate(year, month);
         return result;
     }
-    public List<Picture> getPitcturesByDateAndCity(int year, String month, City city){
-        List<Picture> result = picturesDAO.getPitcturesByDateAndCity(year, month, city);
+    public List<Picture> getPicturesByDateAndCity(int year, String month, City city){
+        List<Picture> result = picturesDAO.getPicturesByDateAndCity(year, month, city);
         return result;
     }
     public List<MonthsForAGivenYear> getDatesForACity(City city){

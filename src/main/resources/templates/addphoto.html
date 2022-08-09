@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Travel Memories</title>
+</head>
+
+<body>
+<div th:replace="fragments.html :: #menu-eng"></div>
+<div class="content">
+
+    <h1>Ładujemy zdjęcie</h1>
+
+    <form th:action="@{/upload}"
+          th:object="${picture}" method="post" enctype="multipart/form-data">
+
+        <input class="input-description" type="text" placeholder="description"
+               th:field="*{picture.description}"></input>
+        <br>
+        <div>
+            <label>Photos: </label>
+            <input type="file" name="image" accept="image/png, image/jpeg" />
+        </div>
+
+
+    </form>
+
+
+</div>
+</body>
+</html>
