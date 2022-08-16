@@ -8,5 +8,5 @@ import java.util.List;
 public interface ICountriesService {
     List<Country> getAll();
     Country getCountryByNameEng(String countryName);
-    String[] allCountryNamesSorted();
+    List<Country> allCountryNamesSorted();
 }

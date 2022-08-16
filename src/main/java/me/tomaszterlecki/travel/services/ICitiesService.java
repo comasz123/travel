@@ -7,7 +7,7 @@ import me.tomaszterlecki.travel.model.Country;
 import java.util.List;
 
 public interface ICitiesService {
-    List<City> getCitiesByCountry(Country country);
+    List<City> getAllCitiesByCountry(Country country);
     List<CitiesForAGivenCountry> getCitiesInCountry();
     City getCityById(int cityId);
 

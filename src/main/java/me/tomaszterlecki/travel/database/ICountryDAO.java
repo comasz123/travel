@@ -8,7 +8,7 @@ import java.util.List;
 public interface ICountryDAO {
     List<Country> getAll();
     Country getCountryByNameEng(String nameEng);
-    String[] getAllNamesSorted ();
     List<CitiesForAGivenCountry> getAllCitiesInCountries();
+    List<Country> getAllNamesSorted ();
 
 }

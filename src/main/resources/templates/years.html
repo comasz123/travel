@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/links.css">
     <!--    <script src="/validation.js"></script>-->
     <title>Travel Memories</title>
 </head>
@@ -16,7 +17,7 @@
             <div class="years" th:text="${element.getYear()}">
             </div>
             <div class="months" th:each="month: ${element.getMonths()}">
-                <a class="month" th:text="${month}" th:href="@{
+                <a th:text="${month}" th:href="@{
                      /years/{year}/{month}(year=${element.getYear()}, month=${month})}"></a>
             </div>
         </div>

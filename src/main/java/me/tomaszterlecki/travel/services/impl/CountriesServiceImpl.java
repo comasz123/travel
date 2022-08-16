@@ -24,7 +24,7 @@ public class CountriesServiceImpl implements ICountriesService {
         return countryDAO.getCountryByNameEng(countryName);
     }
     @Override
-    public String[] allCountryNamesSorted(){
+    public List<Country> allCountryNamesSorted(){
         return countryDAO.getAllNamesSorted();
     }
 

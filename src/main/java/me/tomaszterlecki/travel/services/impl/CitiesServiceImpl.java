@@ -19,7 +19,7 @@ public class CitiesServiceImpl implements ICitiesService {
     ICountryDAO countryDAO;
 
     @Override
-    public List<City> getCitiesByCountry(Country country) {
+    public List<City> getAllCitiesByCountry(Country country) {
         return this.cityDAO.getAllCitiesByCountry(country);
     }
 

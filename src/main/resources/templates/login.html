@@ -10,8 +10,8 @@
 <div th:replace="fragments.html :: #menu-eng"></div>
 <div id="content">
     <form method="post">
-        <input type="text" placeholder="Login" th:field="*{userModel.login}" id="login">
-        <input type="password" placeholder="Hasło" th:field="*{userModel.password}" id="password">
+        <input type="text" placeholder="Login" name="login" id="login">
+        <input type="password" placeholder="Hasło" name="password" id="password">
         <input type="submit" value="Zaloguj">
     </form>
 </div>

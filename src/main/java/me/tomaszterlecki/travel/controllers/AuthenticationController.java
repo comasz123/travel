@@ -1,7 +1,10 @@
 package me.tomaszterlecki.travel.controllers;
 
+import me.tomaszterlecki.travel.exceptions.ValidationException;
 import me.tomaszterlecki.travel.model.User;
 import me.tomaszterlecki.travel.services.IAuthenticationService;
+import me.tomaszterlecki.travel.session.SessionObject;
+import me.tomaszterlecki.travel.validators.UserDataValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,13 +17,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class AuthenticationController {
     @Autowired
     IAuthenticationService authenticationService;
+    @Autowired
+    SessionObject sessionObject;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login (Model model){
-        model.addAttribute("userModel", new User());
+    public String login (){
+//        model.addAttribute("user", new User);
         return "login";
     }
-
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(@RequestParam String login, @RequestParam String password) {
+        try {
+            UserDataValidator.validateLogin(login);
+            UserDataValidator.validatePassword(password);
+        } catch (ValidationException e) {
+            return "redirect:/login";
+        }
+        authenticationService.authenticate(login, password);
+        if(this.sessionObject.isLogged()) {
+            return "index";
+        }
+        return "redirect:/login";
+    }
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String register(Model model) {
         model.addAttribute("userModel", new User());

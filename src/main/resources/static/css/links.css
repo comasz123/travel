@@ -1,0 +1,42 @@
+.years-list .years-and-months .months a {
+    text-decoration: none;
+    color: chocolate;
+}
+.years-list .years-and-months .months a:hover {
+    background: bisque;
+}
+
+.years-list .years-and-months .months a:visited {
+    color: chocolate;
+}
+.city a {
+    text-decoration: none;
+    color: chocolate;
+}
+.city a:hover {
+    background: bisque;
+}
+.city a:visited {
+    color: chocolate;
+}
+.country-list .city-list a {
+    text-decoration: none;
+    color: chocolate;
+}
+.country-list .city-list a:hover {
+    background: bisque;
+}
+.country-list .city-list a:visited {
+    color: chocolate;
+}
+
+.dates-list .years-and-months .months a {
+    text-decoration: none;
+    color: chocolate;
+}
+.dates-list .years-and-months .months a:hover {
+    background: bisque;
+}
+.dates-list .years-and-months .months a:visited {
+    color: chocolate;
+}

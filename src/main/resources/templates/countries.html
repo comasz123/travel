@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/links.css">
   <!--    <script src="/validation.js"></script>-->
   <title>Travel Memories</title>
 </head>
@@ -12,7 +13,7 @@
 <div id="content">
 
     <div class="country-list" th:each="element : ${elements}">
-        <div th:text="${element.getCountry()}"></div>
+        <div th:text="${element.getCountry().getNameEng()}"></div>
         <div class="city-list" th:each="city : ${element.getCities()}">
             <a th:text="${city.getNameEng()}" th:href="@{/countries/{city}(city=${city.getId()})}"></a>
         </div>

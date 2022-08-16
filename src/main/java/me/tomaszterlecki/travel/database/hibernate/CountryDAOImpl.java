@@ -11,9 +11,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Repository
 public class CountryDAOImpl implements ICountryDAO {
@@ -29,20 +27,7 @@ public class CountryDAOImpl implements ICountryDAO {
         session.close();
         return result;
     }
-    public String[] getAllNamesSorted () {
-        Session session = this.sessionFactory.openSession();
-        Query<Country> query = session.createQuery("FROM me.tomaszterlecki.travel.model.Country");
-        List<Country> countries = query.getResultList();
-        session.close();
-        String[] result = new String[countries.size()];
-        int i = 0;
-        for (Country country:countries) {
-            result[i]=country.getNameEng();
-            i++;
-        }
-        Arrays.sort(result);
-        return result;
-    }
+
 
     @Override
     public Country getCountryByNameEng(String nameEng) {
@@ -55,14 +40,27 @@ public class CountryDAOImpl implements ICountryDAO {
     }
     @Override
     public List<CitiesForAGivenCountry> getAllCitiesInCountries(){
-        String[] countryNames = getAllNamesSorted();
+        List<Country> countriesSourted = getAllNamesSorted();
         List<CitiesForAGivenCountry> result = new ArrayList<>();
-        for (String countryName : countryNames) {
-            Country country = getCountryByNameEng(countryName);
+        for (Country country : countriesSourted) {
             List<City> cities = cityDAO.getAllCitiesByCountry(country);
-            CitiesForAGivenCountry element = new CitiesForAGivenCountry(countryName, cities);
+            CitiesForAGivenCountry element = new CitiesForAGivenCountry(country, cities);
             result.add(element);
         }
         return result;
+    }
+    public List<Country> getAllNamesSorted () {
+        Session session = this.sessionFactory.openSession();
+        Query<Country> query = session.createQuery("FROM me.tomaszterlecki.travel.model.Country");
+        List<Country> countries = query.getResultList();
+        session.close();
+
+        Collections.sort(countries, new Comparator<Country>() {
+            @Override
+            public int compare(Country o1, Country o2) {
+                return o1.getNameEng().compareTo(o2.getNameEng());
+            }
+        });
+        return countries;
     }
 }

@@ -3,19 +3,19 @@ package me.tomaszterlecki.travel.model;
 import java.util.List;
 
 public class CitiesForAGivenCountry {
-    private String country;
+    private Country country;
     private List<City> cities;
 
-    public CitiesForAGivenCountry(String country, List<City> cities) {
+    public CitiesForAGivenCountry(Country country, List<City> cities) {
         this.country = country;
         this.cities = cities;
     }
 
-    public String getCountry() {
+    public Country getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 

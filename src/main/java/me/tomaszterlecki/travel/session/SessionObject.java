@@ -1,19 +1,28 @@
 package me.tomaszterlecki.travel.session;
 
+import me.tomaszterlecki.travel.model.CitiesForAGivenCountry;
+import me.tomaszterlecki.travel.model.MonthsForAGivenYear;
 import me.tomaszterlecki.travel.model.User;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 @SessionScope
 public class SessionObject {
     private User user = null;
+    private List<MonthsForAGivenYear> yearsTravelled = new ArrayList<>();
+    private List<CitiesForAGivenCountry> citiesTravelled = new ArrayList<>();
 
     public SessionObject() {
     }
 
-    public SessionObject(User user) {
+    public SessionObject(User user, List<MonthsForAGivenYear> yearsTravelled, List<CitiesForAGivenCountry> citiesTravelled) {
         this.user = user;
+        this.yearsTravelled = yearsTravelled;
+        this.citiesTravelled = citiesTravelled;
     }
 
     public User getUser() {
@@ -23,6 +32,23 @@ public class SessionObject {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public List<MonthsForAGivenYear> getYearsTravelled() {
+        return yearsTravelled;
+    }
+
+    public void setYearsTravelled(List<MonthsForAGivenYear> yearsTravelled) {
+        this.yearsTravelled = yearsTravelled;
+    }
+
+    public List<CitiesForAGivenCountry> getCitiesTravelled() {
+        return citiesTravelled;
+    }
+
+    public void setCitiesTravelled(List<CitiesForAGivenCountry> citiesTravelled) {
+        this.citiesTravelled = citiesTravelled;
+    }
+
     public boolean isLogged() {
         return this.user != null;
     }

@@ -98,7 +98,7 @@ public class PictureDAOImpl implements IPicturesDAO {
         City city = cityDAO.getCityById(1);
         User user = userDAO.getUserById(1);
 
-        picture.setOrientation(Picture.Orientation.HORIZONTAL);
+//        picture.setOrientation(Picture.Orientation.HORIZONTAL);
         picture.setYear(2000);
         picture.setMonth(month);
         picture.setCity(city);

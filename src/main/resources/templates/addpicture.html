@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--      xmlns="http://www.w3.org/1999/html">-->
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/main.css">
@@ -15,9 +16,24 @@
     <div class="add-picture">
         <form method="post" enctype="multipart/form-data">
             <input type="text" th:placeholder="description" th:field="*{picture.description}">
+            <br>
+            <label>Orientation:</label>
+            <input type="radio" value="VERTICAL" th:placeholder="orientation" th:field="*{picture.orientation}">VERTICAL</input>
+            <input type="radio" value="HORIZONTAL" th:placeholder="orientation" th:field="*{picture.orientation}">HORIZONTAL</input>
+            <br>
+            <label>Country:</label>
+            <select name="country">
+                <div th:each="element : ${elements}">
+                    <option value="country" th:text="${element.getCountry()}"></option>
+                    <div th:each="city: ${element.getCities()}">
+                        <option th:value="*{city.id}" th:text="${city.getNameEng()}"></option>
+                    </div>
+                </div>
+
+            </select>
             <div>
                 <label>Photo: </label>
-                <input type="file" name="image" accept="image/png, image/jpeg" />
+                <input class="upload-picture" type="file" name="image" accept="image/png, image/jpeg" />
             </div>
 
             <input type="submit" value="OK">

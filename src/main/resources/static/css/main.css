@@ -28,6 +28,13 @@
     background: cornflowerblue;
     color: white;
 }
+.years-list .years-and-months .months {
+    display: inline-block;
+}
+.country-list .city-list {
+    display: inline-block;
+}
+
 .city {
     display: inline-block;
 }
