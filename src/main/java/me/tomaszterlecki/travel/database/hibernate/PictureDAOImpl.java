@@ -2,6 +2,7 @@ package me.tomaszterlecki.travel.database.hibernate;
 
 import me.tomaszterlecki.travel.database.*;
 import me.tomaszterlecki.travel.model.*;
+import me.tomaszterlecki.travel.session.SessionObject;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -22,6 +23,8 @@ public class PictureDAOImpl implements IPicturesDAO {
     ICountryDAO countryDAO;
     @Autowired
     IUserDAO userDAO;
+    @Autowired
+    SessionObject sessionObject;
 
     public List<MonthsForAGivenYear> yearsAndMonths() {
         List<MonthsForAGivenYear> result = new ArrayList<>();
@@ -56,14 +59,16 @@ public class PictureDAOImpl implements IPicturesDAO {
     }
 
     @Override
-    public List<Picture> getPicturesByDateAndCity(int year, String monthString, City city) {
+    public List<Picture> getPicturesByUserDateAndCity(int year, String monthString, City city) {
+        User user = sessionObject.getUser();
         Month monthObject = monthDAO.getMonthByNameEng(monthString);
         Session session = sessionFactory.openSession();
         Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.Picture WHERE " +
-                "year=:year AND month=:month AND city=:city");
+                "year=:year AND month=:month AND city=:city AND user=:user");
         query.setParameter("year", year);
         query.setParameter("month", monthObject);
         query.setParameter("city", city);
+        query.setParameter("user", user);
         List<Picture> resultPictures = query.getResultList();
         session.close();
         return resultPictures;
@@ -80,6 +85,7 @@ public class PictureDAOImpl implements IPicturesDAO {
 
     @Override
     public List<MonthsForAGivenYear> getDatesForACity(City city) {
+
         List<Picture> pictureList = getPicturesByCity(city);
         int[] years = extractYearsForACity(city);
         List<MonthsForAGivenYear> result = new ArrayList<>();

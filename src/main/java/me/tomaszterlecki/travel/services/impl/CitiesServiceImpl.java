@@ -31,4 +31,7 @@ public class CitiesServiceImpl implements ICitiesService {
     public City getCityById(int cityId){
         return this.cityDAO.getCityById(cityId);
     }
+    public void setCountriesAndCitiesForUser(){
+        cityDAO.setCountriesAndCitiesForUser();
+    }
 }

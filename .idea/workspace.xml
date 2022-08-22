@@ -4,37 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3feb614-679c-4f42-8017-763c473cc0cf" name="Changes" comment="upload nie dziala">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/exceptions/ValidationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/validators/UserDataValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/links.css" afterDir="false" />
+    <list default="true" id="e3feb614-679c-4f42-8017-763c473cc0cf" name="Changes" comment="poprawione widoki i logowanie">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/show-test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AddPictureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AddPictureController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/UploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AddPictureController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/ICountryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/ICountryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/IUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/IUserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/CountryDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/CountryDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/CountriesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/CountriesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/PicturesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/PicturesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/YearsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/YearsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/ICityDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/ICityDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/IPicturesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/IPicturesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/CityDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/CityDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/PictureDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/PictureDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/UserDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/CitiesForAGivenCountry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/CitiesForAGivenCountry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/MonthsForAGivenCity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/IAuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/IAuthenticationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/ICitiesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/ICitiesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/ICountriesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/ICountriesService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/AuthenticationServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/CitiesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/CitiesServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/CountriesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/CountriesServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/session/SessionObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/session/SessionObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/PicturesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/PicturesServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addphoto.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addpicture.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addpicture.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cities.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cities.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/countries.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/countries.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/years.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/years.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/yearsAndCities.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/yearsAndCities.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +40,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -96,6 +91,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;69266c67e75c946ef9b4144b0554326d&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -146,6 +142,7 @@
       <workItem from="1659779649281" duration="77562000" />
       <workItem from="1660038395238" duration="31227000" />
       <workItem from="1660674836962" duration="3396000" />
+      <workItem from="1661174656224" duration="8950000" />
     </task>
     <task id="LOCAL-00001" summary="model finished">
       <created>1659786272864</created>

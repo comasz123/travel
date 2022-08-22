@@ -12,8 +12,8 @@
 <div th:replace="fragments.html :: #menu-eng"></div>
 <div id="content">
     <div class="headings-cities">
-        <div th:text="${city.getNameEng()}"></div>
-        <div th:text="${city.getCountry().getNameEng()}"></div>
+        <div class="headings-cities-element" th:text="${city.getNameEng()}"></div>
+        <div class="headings-cities-element" th:text="${city.getCountry().getNameEng()}"></div>
     </div>
     <div class="dates-list" th:each="element : ${elements}">
         <div class="years-and-months">

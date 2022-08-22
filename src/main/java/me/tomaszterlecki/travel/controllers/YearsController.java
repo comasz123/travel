@@ -2,8 +2,11 @@ package me.tomaszterlecki.travel.controllers;
 
 import me.tomaszterlecki.travel.model.City;
 import me.tomaszterlecki.travel.model.Picture;
+import me.tomaszterlecki.travel.services.IAuthenticationService;
 import me.tomaszterlecki.travel.services.IPicturesService;
+import me.tomaszterlecki.travel.session.SessionObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,10 +19,19 @@ import java.util.List;
 public class YearsController {
     @Autowired
     IPicturesService picturesService;
+    @Autowired
+    IAuthenticationService authenticationService;
+    @Autowired
+    SessionObject sessionObject;
 
     @RequestMapping(value="/years", method = RequestMethod.GET)
     public String listYears(Model model){
-        model.addAttribute("elements", picturesService.yearsAndMonths());
+        if(!this.sessionObject.isLogged()) {
+            return "index";
+        }
+
+        model.addAttribute("elements", sessionObject.getYearsTravelled());
+        authenticationService.addCommonInfoToModel(model);
         return "years";
     }
     @RequestMapping(value="/years/{year}/{month}", method = RequestMethod.GET)
@@ -28,6 +40,7 @@ public class YearsController {
         model.addAttribute("month", month);
         List<City> cities = picturesService.getAllCitiesForADate(year, month);
         model.addAttribute("cities", cities);
+        authenticationService.addCommonInfoToModel(model);
         return "yearsAndCities";
     }
 }

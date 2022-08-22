@@ -9,6 +9,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import javax.annotation.Resource;
 import java.util.Optional;
@@ -34,6 +35,10 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
     public void register(User user) {
         user.setPassword(DigestUtils.md5Hex(user.getPassword()));
         this.saver.persistEntity(user);
+    }
+    public void addCommonInfoToModel(Model model) {
+        model.addAttribute("logged", this.sessionObject.isLogged());
+        model.addAttribute("user", this.sessionObject.getUser());
     }
 
     @Override

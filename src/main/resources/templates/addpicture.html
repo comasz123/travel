@@ -11,7 +11,7 @@
 <div th:replace="fragments.html :: #menu-eng"></div>
 <div class="content">
 
-   <h1>Dodajemy zdjecie</h1>
+   <h1>Add picture</h1>
 
     <div class="add-picture">
         <form method="post" enctype="multipart/form-data">
@@ -24,10 +24,11 @@
             <label>Country:</label>
             <select name="country">
                 <div th:each="element : ${elements}">
-                    <option value="country" th:text="${element.getCountry()}"></option>
-                    <div th:each="city: ${element.getCities()}">
-                        <option th:value="*{city.id}" th:text="${city.getNameEng()}"></option>
-                    </div>
+                    <option th:value="${element.getCountry().nameEng}"
+                            th:text="${element.getCountry().nameEng}"></option>
+<!--                    <div th:each="city: ${element.getCities()}">-->
+<!--                        <option th:value="*{city.id}" th:text="${city.getNameEng()}"></option>-->
+<!--                    </div>-->
                 </div>
 
             </select>
@@ -38,7 +39,10 @@
 
             <input type="submit" value="OK">
         </form>
+
+
     </div>
+
 
 
 </div>

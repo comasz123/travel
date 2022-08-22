@@ -6,13 +6,18 @@
     <title>Travel Memories</title>
 </head>
 <body>
-<div id="menu-eng" th:fragment="menu-eng">
+<div class="main-menu" id="menu-eng" th:fragment="menu-eng">
     <div class="menu-div">
         <div class="logo">
             <img src="/img/logo.jpg">
         </div>
         <a href="/years">Years</a>
         <a href="/countries">Countries</a>
+        <a href="/upload">Add Picture</a>
+        <a href="/login" th:if="${logged == false}">Login</a>
+        <a href="/logout" th:if="${logged == true}">Wyloguj</a>
+
+        <div class="login-info" th:if="${logged == true}" th:text="'Zalogowany jako: ' + ${user.name}" id="user-login"></div>
     </div>
 </div>
 </body>

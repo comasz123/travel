@@ -15,8 +15,10 @@ public class User implements Writeable {
     private String name;
     @Column(length = 50)
     private String password;
+
     @Enumerated(EnumType.STRING)
     Status status;
+
 
     public User() {
     }

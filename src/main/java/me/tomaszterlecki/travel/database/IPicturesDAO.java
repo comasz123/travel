@@ -9,7 +9,7 @@ import java.util.List;
 public interface IPicturesDAO {
     List<MonthsForAGivenYear> yearsAndMonths ();
     List<City> getAllCitiesForADate(int year, String month);
-    List<Picture> getPicturesByDateAndCity(int year, String month, City city);
+    List<Picture> getPicturesByUserDateAndCity(int year, String month, City city);
     List<Picture> getPicturesByCity(City city);
     List<MonthsForAGivenYear> getDatesForACity(City cityName);
     Picture createPartialPicture(Picture picture);

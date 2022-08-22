@@ -21,12 +21,12 @@ public class AuthenticationController {
     SessionObject sessionObject;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login (){
-//        model.addAttribute("user", new User);
+    public String login (Model model){
+        authenticationService.addCommonInfoToModel(model);
         return "login";
     }
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestParam String login, @RequestParam String password) {
+    public String login(@RequestParam String login, @RequestParam String password, Model model) {
         try {
             UserDataValidator.validateLogin(login);
             UserDataValidator.validatePassword(password);
@@ -34,7 +34,9 @@ public class AuthenticationController {
             return "redirect:/login";
         }
         authenticationService.authenticate(login, password);
+        authenticationService.addCommonInfoToModel(model);
         if(this.sessionObject.isLogged()) {
+            System.out.println(login);
             return "index";
         }
         return "redirect:/login";
@@ -49,4 +51,5 @@ public class AuthenticationController {
         authenticationService.register(user);
         return "redirect:/";
     }
+
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/links.css">
+    <!--    <script src="/validation.js"></script>-->
+    <title>Travel Memories</title>
+</head>
+<body>
+<select id="country" onChange="update()">
+    <div th:each="element : ${elements}">
+        <option th:value="${element.getCountry().id}"
+                th:text="${element.getCountry().nameEng}"></option>
+
+    </div>
+</select>
+<input type="text" id="value">
+<input type="text" id="text">
+
+
+<script type="text/javascript">
+    function update() {
+        var select = document.getElementById('country');
+        var option = select.options[select.selectedIndex];
+
+        document.getElementById('value').value = option.value;
+        document.getElementById('text').value = option.text;
+    }
+
+    update();
+</script>
+
+</body>
+</html>
