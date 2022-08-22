@@ -21,4 +21,12 @@ public class MonthDAOImpl implements IMonthDAO {
         Month result = query.getSingleResult();
         return result;
     }
+    public Month getMonthById(int id){
+        Session session = sessionFactory.openSession();
+        Query<Month> query = session.createQuery("FROM me.tomaszterlecki.travel.model.Month WHERE id=:id");
+        query.setParameter("id", id);
+        Month result = query.getSingleResult();
+        return result;
+    }
+
 }

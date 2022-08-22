@@ -26,7 +26,7 @@ public class MainController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String main(Model model) {
-        this.authenticationService.authenticate("jozek", "jozek");
+        this.authenticationService.authenticate("karol", "karol");
         this.authenticationService.addCommonInfoToModel(model);
         citiesService.setCountriesAndCitiesForUser();
         sessionObject.setYearsTravelled(picturesService.yearsAndMonths());

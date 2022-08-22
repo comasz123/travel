@@ -39,11 +39,14 @@ public class PictureDAOImpl implements IPicturesDAO {
 
     @Override
     public List<City> getAllCitiesForADate(int year, String monthString) {
+        User user = sessionObject.getUser();
         Month monthObject = monthDAO.getMonthByNameEng(monthString);
         Session session = sessionFactory.openSession();
-        Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.Picture WHERE year=:year AND month=:month");
+        Query query = session.createQuery
+                ("FROM me.tomaszterlecki.travel.model.Picture WHERE year=:year AND month=:month AND user=:user");
         query.setParameter("year", year);
         query.setParameter("month", monthObject);
+        query.setParameter("user", user);
         List<Picture> resultPictures = query.getResultList();
         session.close();
 
@@ -118,10 +121,12 @@ public class PictureDAOImpl implements IPicturesDAO {
 
     //    ------- metody prywatne------------
     private int[] extractYears() {
+        User user = sessionObject.getUser();
         Session session = sessionFactory.openSession();
-        Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.Picture");
-        List<Picture> allPictures = query.getResultList();
-        int[] result = getYears(allPictures);
+        Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.Picture WHERE user=:user");
+        query.setParameter("user", user);
+        List<Picture> picturesForGivenUser = query.getResultList();
+        int[] result = getYears(picturesForGivenUser);
         session.close();
         Arrays.sort(result);
         return result;
@@ -139,9 +144,12 @@ public class PictureDAOImpl implements IPicturesDAO {
     }
 
     private String[] getMonthsForAGivenYear(int year) {
+        User user = sessionObject.getUser();
         Session session = sessionFactory.openSession();
-        Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.Picture WHERE year=:year");
+        Query query = session.createQuery
+                ("FROM me.tomaszterlecki.travel.model.Picture WHERE year=:year AND user=:user");
         query.setParameter("year", year);
+        query.setParameter("user", user);
         List<Picture> pictures = query.getResultList();
         session.close();
         String[] result = getMonthsEng(pictures);
@@ -161,16 +169,21 @@ public class PictureDAOImpl implements IPicturesDAO {
     }
 
     private String[] getMonthsEng(List<Picture> pictures) {
-        Set<String> monthsSet = new HashSet<>();
+        Set<Integer> monthsIdsSet = new HashSet<>();
         for (Picture picture : pictures) {
-            monthsSet.add(picture.getMonth().getNameEng());
+            monthsIdsSet.add(picture.getMonth().getId());
         }
-        int list = monthsSet.size();
+        int list = monthsIdsSet.size();
         String[] result = new String[list];
+        int[] resultIds = new int[list];
         int i = 0;
-        for (String month : monthsSet) {
-            result[i] = month;
+        for (int monthId : monthsIdsSet) {
+            resultIds[i] = monthId;
             i++;
+        }
+        Arrays.sort(resultIds);
+        for (int j = 0; j < list; j++) {
+            result[j]=monthDAO.getMonthById(resultIds[j]).getNameEng();
         }
         return result;
 

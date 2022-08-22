@@ -14,7 +14,7 @@
    <h1>Add picture</h1>
 
     <div class="add-picture">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" th:action="">
             <input type="text" th:placeholder="description" th:field="*{picture.description}">
             <br>
             <label>Orientation:</label>
@@ -26,25 +26,6 @@
                 <div th:each="element : ${elements}">
                     <option th:value="${element.getCountry().nameEng}"
                             th:text="${element.getCountry().nameEng}"></option>
-<!--                    <div th:each="city: ${element.getCities()}">-->
-<!--                        <option th:value="*{city.id}" th:text="${city.getNameEng()}"></option>-->
-<!--                    </div>-->
-                </div>
-
-            </select>
-            <div>
-                <label>Photo: </label>
-                <input class="upload-picture" type="file" name="image" accept="image/png, image/jpeg" />
-            </div>
-
-            <input type="submit" value="OK">
-        </form>
-
-
-    </div>
 
 
 
-</div>
-</body>
-</html>

@@ -8,15 +8,24 @@
     <title>Travel Memories</title>
 </head>
 <body>
-<select id="country" onChange="update()">
-    <div th:each="element : ${elements}">
-        <option th:value="${element.getCountry().id}"
-                th:text="${element.getCountry().nameEng}"></option>
 
+<!--<select id="country" onChange="update()">-->
+<!--    <div th:each="element : ${elements}">-->
+<!--        <option th:text="${element.getCountry().getNameEng()}"-->
+<!--                th:value="${element.getCountry().getId()}">-->
+<!--        </option>-->
+<!--    </div>-->
+<!--</select>-->
+<div th:each="element : ${elements}">
+    <div th:text="${element.getCountry().getNameEng()}">
+        <div th:each="city : ${element.getCities()}">
+            <div th:text="${city.getNameEng()}"></div>
+        </div>
     </div>
-</select>
-<input type="text" id="value">
-<input type="text" id="text">
+</div>
+
+<!--<input type="number" id="value">-->
+<!--<input type="text" id="text">-->
 
 
 <script type="text/javascript">

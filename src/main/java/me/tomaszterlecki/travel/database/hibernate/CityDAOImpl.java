@@ -32,8 +32,9 @@ public class CityDAOImpl implements ICityDAO {
         session.close();
         return result;
     }
+
     @Override
-    public void setCountriesAndCitiesForUser(){
+    public void setCountriesAndCitiesForUser() {
         User user = sessionObject.getUser();
         System.out.println(user.getName());
         Session session = sessionFactory.openSession();
@@ -45,15 +46,17 @@ public class CityDAOImpl implements ICityDAO {
 
         Set<City> citiesTravelledSet = new HashSet<>();
         Set<Country> countriesTravelled = new HashSet<>();
-        for(Picture picture: pictures){
+
+        for (Picture picture : pictures) {
             citiesTravelledSet.add(picture.getCity());
             countriesTravelled.add(picture.getCity().getCountry());
         }
+
         List<CitiesForAGivenCountry> countriesAndCitiesTravelled = new ArrayList<>();
-        for(Country country: countriesTravelled) {
+        for (Country country : countriesTravelled) {
             List<City> citiesInACountry = new ArrayList<>();
             for (City city : citiesTravelledSet) {
-                if(country.getId()==city.getCountry().getId()){
+                if (country.getId() == city.getCountry().getId()) {
                     citiesInACountry.add(city);
                 }
             }
@@ -61,8 +64,9 @@ public class CityDAOImpl implements ICityDAO {
         }
         sessionObject.setCitiesTravelled(countriesAndCitiesTravelled);
     }
+
     @Override
-    public City getCityById(int cityId){
+    public City getCityById(int cityId) {
         Session session = sessionFactory.openSession();
         Query<City> query = session.createQuery("FROM me.tomaszterlecki.travel.model.City WHERE id=:cityId");
         query.setParameter("cityId", cityId);
