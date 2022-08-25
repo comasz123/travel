@@ -11,21 +11,44 @@
 <div th:replace="fragments.html :: #menu-eng"></div>
 <div class="content">
 
-   <h1>Add picture</h1>
+    <h1>Add picture</h1>
 
     <div class="add-picture">
-        <form method="post" enctype="multipart/form-data" th:action="">
+        <form th:action="@{/upload}" method="post" enctype="multipart/form-data">
             <input type="text" th:placeholder="description" th:field="*{picture.description}">
             <br>
+
+            <label>Photos: </label>
+            <input type="file" name="image" accept="image/png, image/jpeg"/>
             <label>Orientation:</label>
-            <input type="radio" value="VERTICAL" th:placeholder="orientation" th:field="*{picture.orientation}">VERTICAL</input>
+            <input type="radio" value="VERTICAL" th:placeholder="orientation"
+                   th:field="*{picture.orientation}">VERTICAL</input>
             <input type="radio" value="HORIZONTAL" th:placeholder="orientation" th:field="*{picture.orientation}">HORIZONTAL</input>
             <br>
             <label>Country:</label>
             <select name="country">
                 <div th:each="element : ${elements}">
                     <option th:value="${element.getCountry().nameEng}"
-                            th:text="${element.getCountry().nameEng}"></option>
-
-
-
+                            th:text="${element.getCountry().nameEng}">
+                    </option>
+                </div>
+            </select>
+            <select name="city">
+                <div th:each="element : ${elements}">
+                    <div th:each="city : ${element.getCities()}">
+                        <option th:value="${city.getId()}"
+                                th:text="${city.getNameEng()}">
+                        </option>
+                    </div>
+                </div>
+            </select>
+            <input type="submit" value="OK"/>
+        </form>
+        <br>
+       <a href="/country/add">Add Country</a>
+        <br>
+        <a href="/city/add">Add City</a>
+    </div>
+</div>
+</body>
+</html>

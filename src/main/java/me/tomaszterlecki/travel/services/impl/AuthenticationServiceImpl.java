@@ -7,7 +7,6 @@ import me.tomaszterlecki.travel.services.IAuthenticationService;
 import me.tomaszterlecki.travel.session.SessionObject;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 

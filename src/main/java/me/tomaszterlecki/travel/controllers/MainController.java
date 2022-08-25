@@ -4,7 +4,6 @@ import me.tomaszterlecki.travel.services.IAuthenticationService;
 import me.tomaszterlecki.travel.services.ICitiesService;
 import me.tomaszterlecki.travel.services.IPicturesService;
 import me.tomaszterlecki.travel.session.SessionObject;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

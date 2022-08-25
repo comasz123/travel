@@ -9,7 +9,6 @@ public interface ICityDAO {
     List<City> getAllCitiesByCountry(Country country);
 
     void setCountriesAndCitiesForUser();
-
     City getCityById(int id);
 
 }

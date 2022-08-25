@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ICitiesService {
     List<City> getAllCitiesByCountry(Country country);
-    List<CitiesForAGivenCountry> getCitiesInCountry();
+    List<CitiesForAGivenCountry> getAllCitiesInAllCountries();
     City getCityById(int cityId);
     void setCountriesAndCitiesForUser();
 

@@ -2,8 +2,6 @@ package me.tomaszterlecki.travel.database.hibernate;
 
 import me.tomaszterlecki.travel.database.ICityDAO;
 import me.tomaszterlecki.travel.database.ICountryDAO;
-import me.tomaszterlecki.travel.model.CitiesForAGivenCountry;
-import me.tomaszterlecki.travel.model.City;
 import me.tomaszterlecki.travel.model.Country;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,14 +18,13 @@ public class CountryDAOImpl implements ICountryDAO {
     @Autowired
     ICityDAO cityDAO;
 
-    public List<Country> getAll () {
+    public List<Country> getAllCountries() {
         Session session = this.sessionFactory.openSession();
         Query<Country> query = session.createQuery("FROM me.tomaszterlecki.travel.model.Country");
-        List<Country> result = query.getResultList();
+        List<Country> countries = query.getResultList();
         session.close();
-        return result;
+        return getCountryNamesSortedInEng(countries);
     }
-
 
     @Override
     public Country getCountryByNameEng(String nameEng) {
@@ -38,23 +35,23 @@ public class CountryDAOImpl implements ICountryDAO {
         session.close();
         return result;
     }
-    @Override
-    public List<CitiesForAGivenCountry> getAllCitiesInCountries(){
-        List<Country> countriesSourted = getAllNamesSorted();
-        List<CitiesForAGivenCountry> result = new ArrayList<>();
-        for (Country country : countriesSourted) {
-            List<City> cities = cityDAO.getAllCitiesByCountry(country);
-            CitiesForAGivenCountry element = new CitiesForAGivenCountry(country, cities);
-            result.add(element);
-        }
-        return result;
-    }
-    public List<Country> getAllNamesSorted () {
-        Session session = this.sessionFactory.openSession();
-        Query<Country> query = session.createQuery("FROM me.tomaszterlecki.travel.model.Country");
-        List<Country> countries = query.getResultList();
-        session.close();
-
+//    @Override
+//    public List<CitiesForAGivenCountry> getAllCitiesInAllCountries(){
+//
+//        Session session = this.sessionFactory.openSession();
+//        Query<Country> query = session.createQuery("FROM me.tomaszterlecki.travel.model.Country");
+//        List<Country> countries = query.getResultList();
+//        session.close();
+//        List<Country> countryNamesSorted = getCountryNamesSortedInEng(countries);
+//
+//        List<CitiesForAGivenCountry> result = new ArrayList<>();
+//        for (Country country : countryNamesSorted) {
+//            List<City> cities = cityDAO.getAllCitiesByCountry(country);
+//            result.add(new CitiesForAGivenCountry(country, cities));
+//        }
+//        return result;
+//    }
+    public List<Country> getCountryNamesSortedInEng (List<Country> countries) {
         Collections.sort(countries, new Comparator<Country>() {
             @Override
             public int compare(Country o1, Country o2) {

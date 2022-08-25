@@ -9,36 +9,72 @@
 </head>
 <body>
 
-<!--<select id="country" onChange="update()">-->
-<!--    <div th:each="element : ${elements}">-->
-<!--        <option th:text="${element.getCountry().getNameEng()}"-->
-<!--                th:value="${element.getCountry().getId()}">-->
-<!--        </option>-->
-<!--    </div>-->
-<!--</select>-->
-<div th:each="element : ${elements}">
-    <div th:text="${element.getCountry().getNameEng()}">
-        <div th:each="city : ${element.getCities()}">
-            <div th:text="${city.getNameEng()}"></div>
+<head></head>
+<title>Dynamic Drop Down List</title>
+<body>
+<div class="category_div" id="category_div">Countries:
+    <select id="source" name="source">
+        <div th:each="element : ${elements}">
+            <option th:value="${element.getCountry()}" th:text="${element.getCountry().nameEng}"
+                    th:onchange="'dynamicdropdown([[${element.getCities()}]])'">
         </div>
-    </div>
+    </select>
 </div>
 
-<!--<input type="number" id="value">-->
-<!--<input type="text" id="text">-->
+<form name="form1" id="form1" action="">
+    <label> Subjects:</label>
+    <select class="form-control" name="subject" id="subject">
+        <option value="" selected="selected">Select subject</option>
+    </select>
+    <br><br>
+    <label>Topics: </label>
+    <select class="form-control" name="topic" id="topic">
+        <option value="" selected="selected">Please select subject first</option>
+    </select>
+    <br><br>
+    <label>Chapters:</label>
+    <select class="form-control" name="chapter" id="chapter">
+        <option value="" selected="selected">Please select topic first</option>
+    </select>
+    <br><br>
+    <input class="btn btn-success" type="submit" value="Submit">
+</form>
 
-
-<script type="text/javascript">
-    function update() {
-        var select = document.getElementById('country');
-        var option = select.options[select.selectedIndex];
-
-        document.getElementById('value').value = option.value;
-        document.getElementById('text').value = option.text;
+<script>
+    var subjectObject = {
+        "Front-end": {
+            "HTML": ["Links", "Images", "Tables", "Lists"],
+            "CSS": ["Borders", "Margins", "Backgrounds", "Float"],
+            "JavaScript": ["Variables", "Operators", "Functions", "Conditions"]
+        },
+        "Back-end": {
+            "PHP": ["Variables", "Strings", "Arrays"],
+            "SQL": ["SELECT", "UPDATE", "DELETE"]
+        }
     }
-
-    update();
+    window.onload = function() {
+        var subjectSel = document.getElementById("subject");
+        var topicSel = document.getElementById("topic");
+        var chapterSel = document.getElementById("chapter");
+        for (var x in subjectObject) {
+            subjectSel.options[subjectSel.options.length] = new Option(x, x);
+        }
+        subjectSel.onchange = function() {
+            //display correct values
+            for (var y in subjectObject[this.value]) {
+                topicSel.options[topicSel.options.length] = new Option(y, y);
+            }
+        }
+        topicSel.onchange = function() {
+            //display correct values
+            var z = subjectObject[subjectSel.value][this.value];
+            for (var i = 0; i < z.length; i++) {
+                chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+            }
+        }
+    }
 </script>
+
 
 </body>
 </html>

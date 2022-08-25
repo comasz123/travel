@@ -20,10 +20,12 @@ public class CityDAOImpl implements ICityDAO {
     SessionFactory sessionFactory;
     @Autowired
     SessionObject sessionObject;
+//    @Autowired
+//    ICountryDAO countryDAO;
 
     @Override
     public List<City> getAllCitiesByCountry(Country country) {
-        User user = sessionObject.getUser();
+
         Session session = sessionFactory.openSession();
         Query<City> query = session.createQuery
                 ("FROM me.tomaszterlecki.travel.model.City WHERE country = :country");
@@ -36,7 +38,6 @@ public class CityDAOImpl implements ICityDAO {
     @Override
     public void setCountriesAndCitiesForUser() {
         User user = sessionObject.getUser();
-        System.out.println(user.getName());
         Session session = sessionFactory.openSession();
         Query<Picture> query = session.createQuery
                 ("FROM me.tomaszterlecki.travel.model.Picture WHERE user=:user");
@@ -62,7 +63,7 @@ public class CityDAOImpl implements ICityDAO {
             }
             countriesAndCitiesTravelled.add(new CitiesForAGivenCountry(country, citiesInACountry));
         }
-        sessionObject.setCitiesTravelled(countriesAndCitiesTravelled);
+        sessionObject.setCitiesForAGivenCountries(countriesAndCitiesTravelled);
     }
 
     @Override
@@ -74,6 +75,7 @@ public class CityDAOImpl implements ICityDAO {
         session.close();
         return result;
     }
+
 
 
 }

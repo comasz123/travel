@@ -9,6 +9,7 @@ import me.tomaszterlecki.travel.services.ICitiesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,11 +23,6 @@ public class CitiesServiceImpl implements ICitiesService {
     public List<City> getAllCitiesByCountry(Country country) {
         return this.cityDAO.getAllCitiesByCountry(country);
     }
-
-    @Override
-    public List<CitiesForAGivenCountry> getCitiesInCountry() {
-        return this.countryDAO.getAllCitiesInCountries();
-    }
     @Override
     public City getCityById(int cityId){
         return this.cityDAO.getCityById(cityId);
@@ -34,4 +30,14 @@ public class CitiesServiceImpl implements ICitiesService {
     public void setCountriesAndCitiesForUser(){
         cityDAO.setCountriesAndCitiesForUser();
     }
+    @Override
+    public List<CitiesForAGivenCountry> getAllCitiesInAllCountries(){
+        List<Country> countries = countryDAO.getAllCountries();
+        List<CitiesForAGivenCountry> result = new ArrayList<>();
+        for (Country country : countries) {
+            result.add(new CitiesForAGivenCountry(country, cityDAO.getAllCitiesByCountry(country)));
+        }
+        return result;
+    }
+
 }
