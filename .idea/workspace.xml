@@ -4,28 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3feb614-679c-4f42-8017-763c473cc0cf" name="Changes" comment="gdzies jest cycle">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/add-city.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/add-country.html" afterDir="false" />
+    <list default="true" id="e3feb614-679c-4f42-8017-763c473cc0cf" name="Changes" comment="dodawanie miasta nie dziala">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/scripts/select.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/test2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/test3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/test4.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AddPictureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AddPictureController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/CountriesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/CountriesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/ICityDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/ICityDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/ICountryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/ICountryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/CityDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/CityDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/CountryDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/hibernate/CountryDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/ICitiesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/ICitiesService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/ICountriesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/ICountriesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/IPicturesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/IPicturesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/AuthenticationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/CitiesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/CitiesServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/CountriesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/CountriesServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/PicturesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/services/impl/PicturesServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/session/SessionObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/session/SessionObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-city.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add-city.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addpicture.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addpicture.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/show-test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/show-test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/test.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,6 +31,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JavaScript File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -143,7 +137,7 @@
       <workItem from="1661241043379" duration="4908000" />
       <workItem from="1661267302870" duration="18166000" />
       <workItem from="1661440585688" duration="223000" />
-      <workItem from="1661440979213" duration="525000" />
+      <workItem from="1661440979213" duration="43390000" />
     </task>
     <task id="LOCAL-00001" summary="model finished">
       <created>1659786272864</created>
@@ -187,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661200601279</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="dodawanie miasta nie dziala">
+      <created>1661442075392</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1661442075392</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,7 +217,8 @@
     <MESSAGE value="dzialaja miasta dla usera" />
     <MESSAGE value="nie dziala upload" />
     <MESSAGE value="gdzies jest cycle" />
-    <option name="LAST_COMMIT_MESSAGE" value="gdzies jest cycle" />
+    <MESSAGE value="dodawanie miasta nie dziala" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodawanie miasta nie dziala" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -225,11 +227,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/CommonDateElements.java</url>
           <line>17</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/CountriesController.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
         <breakpoint type="java-exception">
           <properties class="org.springframework.expression.spel.SpelEvaluationException" package="org.springframework.expression.spel" />

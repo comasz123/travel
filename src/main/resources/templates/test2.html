@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--      xmlns="http://www.w3.org/1999/html">-->
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/main.css">
+  <!--    <script src="/scripts/select.js"></script>-->
+  <title>Travel Memories</title>
+</head>
+
+<body>
+<div th:replace="fragments.html :: #menu-eng"></div>
+<div class="content">
+
+  <h1>Nowy test</h1>
+
+  <select id="countries" th:onchange="cities()">
+    <div th:each="element : ${elements}">
+      <option th:value="${element.country.nameEng}"
+              th:text="${element.country.nameEng}"></option>
+    </div>
+  </select>
+  <select id="cities">
+
+  </select>
+
+  <h3 id="city-test"></h3>
+  <h3 id="country-test"></h3>
+  <h2 th:text="${elements.get(1).cities.get(1).nameEng}"></h2>
+
+
+  <script th:inline="javascript">
+
+    function cities() {
+
+      let countriesAndCities = [[${elements}]];
+
+      const selectCountries = document.getElementById("countries");
+      let option = selectCountries.options[selectCountries.selectedIndex];
+
+      document.getElementById("city-test").innerText = option.index;
+      let cityNumber = countriesAndCities[option.index].cities.length;
+      let cityName = countriesAndCities[1].cities[0].namePol;
+
+      document.getElementById("country-test").innerText = cityNumber;
+
+      const selectCities = document.getElementById("cities");
+      selectCities.removeChild(selectCities);
+
+      for (let i = 0; i < cityNumber; i++) {
+        let optionItem = document.createElement("option");
+        optionItem.value = countriesAndCities[option.index].cities[i].nameEng;
+        optionItem.text = countriesAndCities[option.index].cities[i].nameEng;
+        selectCities.appendChild(optionItem);
+      }
+
+
+    }
+  </script>
+
+</div>
+
+</body>
+</html>

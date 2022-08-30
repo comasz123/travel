@@ -8,5 +8,6 @@ public interface ICountriesService {
     List<Country> getAllCountries();
     List<Country> getAllCountriesTravelled();
     Country getCountryByNameEng(String countryName);
+    Country getCountryByID(int id);
 
 }

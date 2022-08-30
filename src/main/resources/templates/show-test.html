@@ -9,8 +9,13 @@
 </head>
 <body>
 
-<h2 th:text="${country.nameEng}"></h2>
-<h2 th:text="${city.nameEng}"></h2>
+<h2>
+  <div th:text="${country.getNameEng()}"></div>
+</h2>
+<!--<h2>-->
+<!--  <div th:text="${city.getNameEng()}"></div>-->
+<!--  <div th:text="${city.getNamePol()}"></div>-->
+<!--</h2>-->
 
 </body>
 </html>

@@ -35,7 +35,17 @@ public class CountryDAOImpl implements ICountryDAO {
         session.close();
         return result;
     }
-//    @Override
+    @Override
+    public Country getCountryByID(int id){
+        Session session = this.sessionFactory.openSession();
+        Query<Country> query = session.createQuery("FROM me.tomaszterlecki.travel.model.Country WHERE id = :id");
+        query.setParameter("id", id);
+        Country result = query.getSingleResult();
+        session.close();
+        return result;
+    }
+
+    //    @Override
 //    public List<CitiesForAGivenCountry> getAllCitiesInAllCountries(){
 //
 //        Session session = this.sessionFactory.openSession();

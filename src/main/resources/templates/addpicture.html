@@ -29,7 +29,7 @@
             <select name="country">
                 <div th:each="element : ${elements}">
                     <option th:value="${element.getCountry().nameEng}"
-                            th:text="${element.getCountry().nameEng}">
+                            th:field="${element.getCountry().nameEng}">
                     </option>
                 </div>
             </select>
@@ -37,7 +37,7 @@
                 <div th:each="element : ${elements}">
                     <div th:each="city : ${element.getCities()}">
                         <option th:value="${city.getId()}"
-                                th:text="${city.getNameEng()}">
+                                th:field="${city.getNameEng()}">
                         </option>
                     </div>
                 </div>

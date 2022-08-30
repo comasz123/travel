@@ -32,6 +32,9 @@ public class CountriesServiceImpl implements ICountriesService {
     public Country getCountryByNameEng(String countryName) {
         return countryDAO.getCountryByNameEng(countryName);
     }
-
+    @Override
+    public Country getCountryByID(int id){
+        return countryDAO.getCountryByID(id);
+    }
 
 }

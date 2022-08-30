@@ -1,80 +1,59 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--      xmlns="http://www.w3.org/1999/html">-->
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/links.css">
-    <!--    <script src="/validation.js"></script>-->
+<!--    <script src="/scripts/select.js"></script>-->
     <title>Travel Memories</title>
 </head>
-<body>
 
-<head></head>
-<title>Dynamic Drop Down List</title>
 <body>
-<div class="category_div" id="category_div">Countries:
-    <select id="source" name="source">
-        <div th:each="element : ${elements}">
-            <option th:value="${element.getCountry()}" th:text="${element.getCountry().nameEng}"
-                    th:onchange="'dynamicdropdown([[${element.getCities()}]])'">
-        </div>
+<div th:replace="fragments.html :: #menu-eng"></div>
+<div class="content">
+
+        <select id="country" th:onchange="update()">
+            <div th:each="country : ${countries}">
+                <option th:value="${country.nameEng}"
+                        th:text="${country.nameEng}"></option>
+            </div>
+        </select>
+
+    <div th:text="${testname}"></div>
+
+    <input type="text" id="value">
+    <p id="text"></p>
+
+    <select id="country-2">
+
     </select>
+
+    <div th:text="${cities.size()}"></div>
+
+    <script th:inline="javascript">
+
+        function update() {
+            var select = document.getElementById('country');
+            var option = select.options[select.selectedIndex];
+
+            document.getElementById('value').value = option.value;
+            document.getElementById('text').innerText = [[${testname}]];
+
+            var selectSelect = document.getElementById("country-2");
+            const optionList = [[${countries}]];
+
+            for (let i = 0; i < optionList.length; i++) {
+                let optionItem = document.createElement("option");
+                optionItem.value = optionList[i].namePol;
+                optionItem.text = optionList[i].namePol;
+                selectSelect.appendChild(optionItem);
+            }
+
+
+        }
+    </script>
+
 </div>
-
-<form name="form1" id="form1" action="">
-    <label> Subjects:</label>
-    <select class="form-control" name="subject" id="subject">
-        <option value="" selected="selected">Select subject</option>
-    </select>
-    <br><br>
-    <label>Topics: </label>
-    <select class="form-control" name="topic" id="topic">
-        <option value="" selected="selected">Please select subject first</option>
-    </select>
-    <br><br>
-    <label>Chapters:</label>
-    <select class="form-control" name="chapter" id="chapter">
-        <option value="" selected="selected">Please select topic first</option>
-    </select>
-    <br><br>
-    <input class="btn btn-success" type="submit" value="Submit">
-</form>
-
-<script>
-    var subjectObject = {
-        "Front-end": {
-            "HTML": ["Links", "Images", "Tables", "Lists"],
-            "CSS": ["Borders", "Margins", "Backgrounds", "Float"],
-            "JavaScript": ["Variables", "Operators", "Functions", "Conditions"]
-        },
-        "Back-end": {
-            "PHP": ["Variables", "Strings", "Arrays"],
-            "SQL": ["SELECT", "UPDATE", "DELETE"]
-        }
-    }
-    window.onload = function() {
-        var subjectSel = document.getElementById("subject");
-        var topicSel = document.getElementById("topic");
-        var chapterSel = document.getElementById("chapter");
-        for (var x in subjectObject) {
-            subjectSel.options[subjectSel.options.length] = new Option(x, x);
-        }
-        subjectSel.onchange = function() {
-            //display correct values
-            for (var y in subjectObject[this.value]) {
-                topicSel.options[topicSel.options.length] = new Option(y, y);
-            }
-        }
-        topicSel.onchange = function() {
-            //display correct values
-            var z = subjectObject[subjectSel.value][this.value];
-            for (var i = 0; i < z.length; i++) {
-                chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
-            }
-        }
-    }
-</script>
-
 
 </body>
 </html>

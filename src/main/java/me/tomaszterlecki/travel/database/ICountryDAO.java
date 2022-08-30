@@ -9,5 +9,6 @@ public interface ICountryDAO {
     Country getCountryByNameEng(String nameEng);
 //    List<CitiesForAGivenCountry> getAllCitiesInAllCountries();
     List<Country> getCountryNamesSortedInEng (List<Country> countries);
+    Country getCountryByID(int id);
 
 }

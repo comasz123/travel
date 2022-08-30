@@ -67,8 +67,8 @@ public class CountriesController {
     }
 
     @RequestMapping(value = "/city/add", method = RequestMethod.POST)
-    public String addCity(@ModelAttribute("city") City city, @RequestParam String nameEng) {
-        Country country = countriesService.getCountryByNameEng(nameEng);
+    public String addCity(@ModelAttribute("city") City city, @RequestParam("countryNameEng") String countryNameEng) {
+        Country country = countriesService.getCountryByNameEng(countryNameEng);
         city.setCountry(country);
         entitySaver.persistEntity(city);
         return "redirect:/upload";
