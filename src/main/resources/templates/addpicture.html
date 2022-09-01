@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <!--      xmlns="http://www.w3.org/1999/html">-->
 <head>
     <meta charset="UTF-8">
@@ -14,38 +14,47 @@
     <h1>Add picture</h1>
 
     <div class="add-picture">
-        <form th:action="@{/upload}" method="post" enctype="multipart/form-data">
-            <input type="text" th:placeholder="description" th:field="*{picture.description}">
+        <form th:action="@{/upload}" method="post" enctype="multipart/form-data" th:object="${picture}">
+            <input type="text" th:placeholder="description" th:field="*{description}">
             <br>
 
             <label>Photos: </label>
             <input type="file" name="image" accept="image/png, image/jpeg"/>
             <label>Orientation:</label>
             <input type="radio" value="VERTICAL" th:placeholder="orientation"
-                   th:field="*{picture.orientation}">VERTICAL</input>
-            <input type="radio" value="HORIZONTAL" th:placeholder="orientation" th:field="*{picture.orientation}">HORIZONTAL</input>
+                   th:field="*{orientation}">VERTICAL</input>
+            <input type="radio" value="HORIZONTAL" th:placeholder="orientation" th:field="*{orientation}">HORIZONTAL</input>
             <br>
             <label>Country:</label>
-            <select name="country">
-                <div th:each="element : ${elements}">
-                    <option th:value="${element.getCountry().nameEng}"
-                            th:field="${element.getCountry().nameEng}">
-                    </option>
-                </div>
-            </select>
-            <select name="city">
-                <div th:each="element : ${elements}">
-                    <div th:each="city : ${element.getCities()}">
-                        <option th:value="${city.getId()}"
-                                th:field="${city.getNameEng()}">
-                        </option>
-                    </div>
-                </div>
+            <div id="select-boxes">
+                <select name="country">
+                    <option value="0" selected="pick country">pick country</option>
+                    <option th:each="country : ${countries}"
+                            th:text="${country.nameEng}"
+                            th:value="${country.id}"
+                    ></option>
+                </select>
+                <select name="city" th:field="*{city.id}">
+                    <option value="0">pick city</option>
+                    <option th:each="city : ${cities}"
+                            th:value="${city.id}"
+                            th:text="${city.nameEng}"
+                    ></option>
+                </select>
+            </div>
+            <input type="number" value="year" text="year" th:field="*{year}">Year</input>
+
+            <select name="month" th:field="*{month.id}">
+                <option value="0">pick month</option>
+                <option th:each="month : ${months}"
+                        th:value="${month.id}"
+                        th:text="${month.nameEng}"
+                ></option>
             </select>
             <input type="submit" value="OK"/>
         </form>
         <br>
-       <a href="/country/add">Add Country</a>
+        <a href="/country/add">Add Country</a>
         <br>
         <a href="/city/add">Add City</a>
     </div>

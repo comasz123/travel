@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/links.css">
-  <!--    <script src="/validation.js"></script>-->
   <title>Travel Memories</title>
 </head>
 <body>
 
 <h2>
-  <div th:text="${country.getNameEng()}"></div>
+  <div th:text="${city.id}"></div>
 </h2>
-<!--<h2>-->
-<!--  <div th:text="${city.getNameEng()}"></div>-->
-<!--  <div th:text="${city.getNamePol()}"></div>-->
-<!--</h2>-->
+<div th:text="${city.namePol}"></div>
+<h2>
+  <div th:text="${city.getNameEng()}"></div>
+  <div th:text="${city.getNamePol()}"></div>
+</h2>
 
 </body>
 </html>

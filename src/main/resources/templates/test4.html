@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/main.css">
-    <!--    <script src="/scripts/select.js"></script>-->
+    <script src="/scripts/select.js"></script>
     <title>Travel Memories</title>
 </head>
 
@@ -16,15 +16,15 @@
 
     <form method="post">
         <div id="select-boxes">
-            <select id="countries" onchange="cities()">
-                <option value="pick country" text="pick country" selected="pick country">pick country</option>
+            <select id="country" onchange="update()">
+                <option value="0" text="pick country" selected="pick country">pick country</option>
                 <div th:each="element : ${elements}">
                     <option th:value="${element.country.id}"
                             th:text="${element.country.nameEng}"></option>
                 </div>
             </select>
-            <select id="cities">
-                <option value="pick city" text="pick city" selected="pick city">pick city</option>
+            <select id="city" name="cityId">
+                <option value="0" text="pick city" selected="pick city">pick city</option>
             </select>
         </div>
         <input type="submit" value="OK">
@@ -34,45 +34,9 @@
 
     <script th:inline="javascript">
 
-        function cities() {
-
+        function update() {
             let countriesAndCities = [[${elements}]];
-            let selectCitiesDiv = document.getElementById("select-boxes");
-            selectCitiesDiv.removeChild(document.getElementById("cities"));
-
-            const selectCountries = document.getElementById("countries");
-            document.getElementById("city-test").innerText = selectCountries.selectedIndex;
-
-            let citiesSelect = document.createElement("select");
-            citiesSelect.id = "cities";
-            selectCitiesDiv.appendChild(citiesSelect);
-            let citiesOption = document.getElementById("cities");
-
-            if (selectCountries.selectedIndex > 0) {
-                let cityNumber = countriesAndCities[selectCountries.selectedIndex - 1].cities.length;
-                if (cityNumber > 0) {
-
-                    for (let i = 0; i < cityNumber; i++) {
-                        let optionItem = document.createElement("option");
-                        optionItem.value = countriesAndCities[selectCountries.selectedIndex - 1].cities[i].nameEng;
-                        optionItem.text = countriesAndCities[selectCountries.selectedIndex - 1].cities[i].nameEng;
-                        citiesOption.appendChild(optionItem);
-                    }
-
-                } else if (cityNumber == 0) {
-
-                    let optionItem = document.createElement("option");
-                    optionItem.value = 'no cities';
-                    optionItem.text = 'no cities';
-                    citiesOption.appendChild(optionItem);
-
-                }
-            } else {
-                let optionItem = document.createElement("option");
-                optionItem.value = 'pick city';
-                optionItem.text = 'pick city';
-                citiesOption.appendChild(optionItem);
-            }
+            getCities(countriesAndCities);
         }
     </script>
 

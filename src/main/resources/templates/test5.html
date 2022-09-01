@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--      xmlns="http://www.w3.org/1999/html">-->
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/main.css">
+    <!--    <script src="/scripts/select.js"></script>-->
+    <title>Travel Memories</title>
+</head>
+
+<body>
+<div th:replace="fragments.html :: #menu-eng"></div>
+<div class="content">
+
+    <h1>Nowy test 7</h1>
+
+    <form method="post">
+            <select id="city" name="id">
+                <option th:each="cityList : ${cities}"
+                        th:value="${cityList.id}"
+                        th:text="${cityList.namePol}"
+                ></option>
+            </select>
+        <input type="submit" value="OK">
+    </form>
+
+    <h3 id="city-test"></h3>
+
+
+
+</div>
+
+</body>
+</html>

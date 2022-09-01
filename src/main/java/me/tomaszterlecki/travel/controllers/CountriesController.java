@@ -2,7 +2,6 @@ package me.tomaszterlecki.travel.controllers;
 
 import me.tomaszterlecki.travel.database.IEntitySaver;
 import me.tomaszterlecki.travel.model.City;
-import me.tomaszterlecki.travel.model.Country;
 import me.tomaszterlecki.travel.services.IAuthenticationService;
 import me.tomaszterlecki.travel.services.ICitiesService;
 import me.tomaszterlecki.travel.services.ICountriesService;
@@ -48,31 +47,6 @@ public class CountriesController {
         return "cities";
     }
 
-    @RequestMapping(value = "/country/add", method = RequestMethod.GET)
-    public String addCountry(Model model) {
-        model.addAttribute("country", new Country());
-        return "add-country";
-    }
-
-    @RequestMapping(value = "/country/add", method = RequestMethod.POST)
-    public String addCountry(@ModelAttribute("country") Country country) {
-        entitySaver.persistEntity(country);
-        return "redirect:/upload";
-    }
-    @RequestMapping(value = "/city/add", method = RequestMethod.GET)
-    public String addCity(Model model) {
-        model.addAttribute("city", new City());
-        model.addAttribute("countries", countriesService.getAllCountries());
-        return "add-city";
-    }
-
-    @RequestMapping(value = "/city/add", method = RequestMethod.POST)
-    public String addCity(@ModelAttribute("city") City city, @RequestParam("countryNameEng") String countryNameEng) {
-        Country country = countriesService.getCountryByNameEng(countryNameEng);
-        city.setCountry(country);
-        entitySaver.persistEntity(city);
-        return "redirect:/upload";
-    }
 }
 
 

@@ -10,13 +10,13 @@
 <body>
 <div th:replace="fragments.html :: #menu-eng"></div>
 <div class="content">
-    <form method="POST">
-        <input type="text" placeholder="Name in English" th:field="*{city.nameEng}">
-        <input type="text" placeholder="Nazwa po polsku" th:field="*{city.namePol}">
+    <form method="POST" th:object="${city}">
+        <input type="text" placeholder="Name in English" th:field="*{nameEng}">
+        <input type="text" placeholder="Nazwa po polsku" th:field="*{namePol}">
 
-        <select name="countryNameEng">
+        <select name="country" th:field="*{country.id}">
             <option th:each="country : ${countries}"
-                    th:value="${country.nameEng}"
+                    th:value="${country.id}"
                     th:text="${country.nameEng}">
             </option>
         </select>

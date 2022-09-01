@@ -8,9 +8,13 @@
 
 <body>
 <div th:replace="fragments.html :: #menu-eng"></div>
+
 <div class="content">
-  <form method="POST" th:object="${country}">
+  <h1> Edit country:</h1>
+  <form action=/edit/country method="POST" th:object="${country}">
+    <div th:text="${country.nameEng}"></div>
     <input type="text" placeholder="Name in English" th:field="*{nameEng}">
+    <div th:text="${country.namePol}"></div>
     <input type="text" placeholder="Nazwa po polsku" th:field="*{namePol}">
     <input type="submit" value="OK">
   </form>

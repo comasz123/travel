@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/links.css">
+  <!--    <script src="/validation.js"></script>-->
+  <title>Travel Memories</title>
+</head>
+<body>
+<div th:replace="fragments.html :: #menu-eng"></div>
+
+<div id="content">
+
+  <a href="/edit/countries">Edit country</a>
+  <a href="/edit/cities">Edit city</a>
+  <a href="">Edit picture</a>
+  <a href="/login" th:if="${user.status == 'ADMIN'}">Edit users</a>
+
+</div>

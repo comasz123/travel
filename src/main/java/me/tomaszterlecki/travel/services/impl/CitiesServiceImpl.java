@@ -27,9 +27,7 @@ public class CitiesServiceImpl implements ICitiesService {
     public City getCityById(int cityId){
         return this.cityDAO.getCityById(cityId);
     }
-    public void setCountriesAndCitiesForUser(){
-        cityDAO.setCountriesAndCitiesForUser();
-    }
+
     @Override
     public List<CitiesForAGivenCountry> getAllCitiesInAllCountries(){
         List<Country> countries = countryDAO.getAllCountries();
@@ -38,6 +36,10 @@ public class CitiesServiceImpl implements ICitiesService {
             result.add(new CitiesForAGivenCountry(country, cityDAO.getAllCitiesByCountry(country)));
         }
         return result;
+    }
+    @Override
+    public List<City> getAllCities(){
+        return this.cityDAO.getAllCities();
     }
 
 }

@@ -10,5 +10,6 @@ public interface ICityDAO {
 
     void setCountriesAndCitiesForUser();
     City getCityById(int id);
+    List<City> getAllCities();
 
 }

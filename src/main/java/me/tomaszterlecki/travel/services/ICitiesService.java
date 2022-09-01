@@ -10,6 +10,6 @@ public interface ICitiesService {
     List<City> getAllCitiesByCountry(Country country);
     List<CitiesForAGivenCountry> getAllCitiesInAllCountries();
     City getCityById(int cityId);
-    void setCountriesAndCitiesForUser();
+    List<City> getAllCities();
 
 }

@@ -8,6 +8,8 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class MonthDAOImpl implements IMonthDAO {
     @Autowired
@@ -26,6 +28,13 @@ public class MonthDAOImpl implements IMonthDAO {
         Query<Month> query = session.createQuery("FROM me.tomaszterlecki.travel.model.Month WHERE id=:id");
         query.setParameter("id", id);
         Month result = query.getSingleResult();
+        return result;
+    }
+    @Override
+    public List<Month> getAllMonthsInEnglish(){
+        Session session = sessionFactory.openSession();
+        Query<Month> query = session.createQuery("FROM me.tomaszterlecki.travel.model.Month");
+        List<Month> result = query.getResultList();
         return result;
     }
 

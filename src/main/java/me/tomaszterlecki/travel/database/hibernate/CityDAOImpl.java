@@ -75,6 +75,14 @@ public class CityDAOImpl implements ICityDAO {
         session.close();
         return result;
     }
+    @Override
+    public List<City> getAllCities(){
+        Session session = sessionFactory.openSession();
+        Query<City> query = session.createQuery("FROM me.tomaszterlecki.travel.model.City");
+        List<City> result = query.getResultList();
+        session.close();
+        return result;
+    }
 
 
 

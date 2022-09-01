@@ -16,10 +16,7 @@ public class PicturesServiceImpl implements IPicturesService {
     IPicturesDAO picturesDAO;
     @Autowired
     SessionObject sessionObject;
-    @Override
-    public List<MonthsForAGivenYear> yearsAndMonths () {
-        return picturesDAO.yearsAndMonths();
-    }
+
     public List<City> getAllCitiesForADate (int year, String month){
         return picturesDAO.getAllCitiesForADate(year, month);
     }
@@ -38,5 +35,6 @@ public class PicturesServiceImpl implements IPicturesService {
         }
         return countries;
     }
+
 
 }
