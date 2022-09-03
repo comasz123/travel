@@ -10,10 +10,7 @@ import me.tomaszterlecki.travel.session.SessionObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class EditObjectsController {
@@ -60,15 +57,31 @@ public class EditObjectsController {
         entitySaver.deleteEntity(country);
         return "redirect:/edit/countries";
     }
-    @RequestMapping(value = "edit/city/{cityId}", method = RequestMethod.GET)
-    public String editCity(Model model, @PathVariable("cityId") int cityId){
+    @RequestMapping(value = "edit/city", method = RequestMethod.GET)
+    public String editCity(Model model, @RequestParam("cityId") int cityId){
         if(!this.sessionObject.isLogged()) {
             return "index";
         }
         authenticationService.addCommonInfoToModel(model);
         
         City city = citiesService.getCityById(cityId);
+        model.addAttribute("countries", countriesService.getAllCountries());
         model.addAttribute(city);
-        return "/admin/edit-country";
+        return "/admin/edit-city";
     }
+    @RequestMapping(value = "edit/city", method = RequestMethod.POST)
+    public String editCity(Model model, @ModelAttribute City city, @RequestParam("countryId") int countryId){
+        if(!this.sessionObject.isLogged()) {
+            return "index";
+        }
+        authenticationService.addCommonInfoToModel(model);
+
+        Country country = countriesService.getCountryByID(countryId);
+        city.setCountry(country);
+        entitySaver.updateEntity(city);
+
+        return "redirect:/admin";
+    }
+
+
 }

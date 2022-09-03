@@ -42,10 +42,18 @@
 }
 .admin-menu {
     text-decoration: none;
-    color: black;
+    color: blueviolet;
     display: block;
     margin: 10px 50px;
 }
-.admin-menu hover {
+.admin-menu:hover {
+    color: red;
+}
+.edit-countries-table {
+    font-size: 15px;
+    text-decoration: none;
+    color: blue;
+}
+.edit-countries-table:hover {
     color: red;
 }

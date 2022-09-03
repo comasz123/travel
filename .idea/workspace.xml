@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3feb614-679c-4f42-8017-763c473cc0cf" name="Changes" comment="zmienione menu glowne">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/CityRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/edit-city.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AddObjectsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AddObjectsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/EditObjectsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/EditObjectsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/links.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/links.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/img/IMG_0830.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/img/IMG_0830.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/scripts/select.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scripts/select.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addpicture.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addpicture.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/edit-cities.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/edit-cities.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/edit-countries.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/edit-countries.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +136,7 @@
       <workItem from="1661440979213" duration="59491000" />
       <workItem from="1661875546081" duration="16826000" />
       <workItem from="1662049469749" duration="4671000" />
-      <workItem from="1662187708852" duration="16215000" />
+      <workItem from="1662187708852" duration="21784000" />
     </task>
     <task id="LOCAL-00001" summary="model finished">
       <created>1659786272864</created>
@@ -215,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662198690070</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="zmienione menu glowne">
+      <created>1662207652247</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1662207652247</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

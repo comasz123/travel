@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Travel Memories</title>
+</head>
+
+<body>
+<div th:replace="fragments.html :: #menu-eng"></div>
+
+<div class="content">
+  <h1> Edit City:</h1>
+  <form action="/edit/city/" method="POST">
+    <div th:text="'Name in English: '+ ${city.nameEng}"></div>
+    <input type="text" placeholder="Name in English" th:field="*{city.nameEng}">
+    <div th:text="'Nazwa po polsku: '+${city.namePol}"></div>
+    <input type="text" placeholder="Nazwa po polsku" th:field="*{city.namePol}">
+    <input type="hidden" th:field="*{city.id}">
+    <div th:text="'Country: '+${city.country.nameEng}"></div>
+
+    <select id="countries" name="countryId" selected="Poland">
+      <option th:each="countryList : ${countries}" th:text="${countryList.nameEng}"
+              th:value="${countryList.id}" th:selected="${countryList.nameEng==city.country.nameEng}"></option>
+    </select>
+
+    <input type="submit" value="OK">
+  </form>
+</div>
+</body>
+</html>
