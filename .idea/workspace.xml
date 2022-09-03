@@ -5,8 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3feb614-679c-4f42-8017-763c473cc0cf" name="Changes" comment="pracuje nad edycją">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/EditObjectsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/edit-picture-warning.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AddObjectsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AddObjectsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/links.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/links.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scripts/select.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/scripts/select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/admin-panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/admin-panel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/edit-countries.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/edit-countries.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/edit-country.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/edit-country.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/show-test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/test/show-test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/test/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/test2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/test/test2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/test3.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/test/test3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/test4.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/test/test4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/test5.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/test/test5.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +100,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/test" />
       <recent name="$PROJECT_DIR$/src/main/resources/static/css" />
     </key>
   </component>
@@ -128,7 +145,7 @@
       <workItem from="1661440979213" duration="59491000" />
       <workItem from="1661875546081" duration="16826000" />
       <workItem from="1662049469749" duration="4671000" />
-      <workItem from="1662187708852" duration="1541000" />
+      <workItem from="1662187708852" duration="8560000" />
     </task>
     <task id="LOCAL-00001" summary="model finished">
       <created>1659786272864</created>
@@ -193,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662050466200</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="pracuje nad edycją">
+      <created>1662189644986</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1662189644986</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,11 +258,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/database/CommonDateElements.java</url>
           <line>17</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/me/tomaszterlecki/travel/controllers/AddObjectsController.java</url>
-          <line>109</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
         <breakpoint type="java-exception">
           <properties class="org.springframework.expression.spel.SpelEvaluationException" package="org.springframework.expression.spel" />

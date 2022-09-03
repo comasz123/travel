@@ -13,6 +13,7 @@
 <div id="content">
     <h1> Edit country</h1>
 
+    <a href="/admin/country/add">Add Country</a>
     <table>
         <tr>
             <th></th>
@@ -22,8 +23,9 @@
         <tr th:each="country : ${countries}">
             <td th:text="${country.nameEng}"></td>
             <td><a th:href="@{/edit/country/{countryId}(countryId=${country.getId})}">Edit</a>
-            <td><a th:href="@{/edit/country/{countryId}(countryId=${country.getId})}">Delete</a></td>
+            <td><a th:href="@{/delete/country/{countryId}(countryId=${country.getId})}">Delete</a></td>
         </tr>
+        <br>
 
     </table>
 

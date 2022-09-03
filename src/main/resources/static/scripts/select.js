@@ -8,6 +8,7 @@ function getCities(countriesAndCities) {
 
     let citiesSelect = document.createElement("select");
     citiesSelect.id = "city";
+    citiesSelect.name = "cityId";
     selectCitiesDiv.appendChild(citiesSelect);
     let citiesOption = document.getElementById("city");
 

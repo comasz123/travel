@@ -16,6 +16,7 @@
     <input type="text" placeholder="Name in English" th:field="*{nameEng}">
     <div th:text="${country.namePol}"></div>
     <input type="text" placeholder="Nazwa po polsku" th:field="*{namePol}">
+    <input type="hidden" th:field="*{id}">
     <input type="submit" value="OK">
   </form>
 </div>

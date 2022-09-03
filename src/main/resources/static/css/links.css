@@ -40,3 +40,12 @@
 .dates-list .years-and-months .months a:visited {
     color: chocolate;
 }
+.admin-menu {
+    text-decoration: none;
+    color: black;
+    display: block;
+    margin: 10px 50px;
+}
+.admin-menu hover {
+    color: red;
+}

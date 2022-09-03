@@ -1,7 +1,4 @@
 package me.tomaszterlecki.travel.model;
-
-import jdk.jshell.Snippet;
-
 import javax.persistence.*;
 
 @Entity(name = "tuser")

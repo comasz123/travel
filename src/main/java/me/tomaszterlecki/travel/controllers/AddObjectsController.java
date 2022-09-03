@@ -44,12 +44,13 @@ public class AddObjectsController {
         if(!this.sessionObject.isLogged()) {
             return "index";
         }
+        authenticationService.addCommonInfoToModel(model);
+
         model.addAttribute("picture", new Picture());
         model.addAttribute("countries", this.countriesService.getAllCountries());
         model.addAttribute("cities", this.citiesService.getAllCities());
         model.addAttribute("elements", citiesService.getAllCitiesInAllCountries());
         model.addAttribute("months", monthService.getAllMonthsInEnglish());
-        authenticationService.addCommonInfoToModel(model);
         return "addpicture";
     }
     @RequestMapping(value = "/add/picture", method = RequestMethod.POST)
@@ -77,8 +78,24 @@ public class AddObjectsController {
 
     @RequestMapping(value = "/country/add", method = RequestMethod.POST)
     public String addCountry(@ModelAttribute("country") Country country) {
+
         entitySaver.persistEntity(country);
         return "redirect:/upload";
+    }
+    @RequestMapping(value = "/admin/country/add", method = RequestMethod.GET)
+    public String addCountryAdmin(Model model) {
+        if(!this.sessionObject.isLogged()) {
+            return "index";
+        }
+        model.addAttribute("country", new Country());
+        return "add-country";
+    }
+
+    @RequestMapping(value = "/admin/country/add", method = RequestMethod.POST)
+    public String addCountryAdmin(@ModelAttribute("country") Country country) {
+
+        entitySaver.persistEntity(country);
+        return "redirect:/edit/countries";
     }
     @RequestMapping(value = "/city/add", method = RequestMethod.GET)
     public String addCity(Model model) {

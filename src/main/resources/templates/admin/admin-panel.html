@@ -12,9 +12,10 @@
 
 <div id="content">
 
-  <a href="/edit/countries">Edit country</a>
-  <a href="/edit/cities">Edit city</a>
-  <a href="">Edit picture</a>
-  <a href="/login" th:if="${user.status == 'ADMIN'}">Edit users</a>
+  <a class="admin-menu" href="/add/picture">Add Picture</a>
+  <a class="admin-menu" href="/edit/countries">Edit country</a>
+  <a class="admin-menu" href="/edit/cities">Edit city</a>
+  <a class="admin-menu" href="edit-picture-warning.html">Edit picture</a>
+  <a class="admin-menu" href="/login" th:if="${user.status == 'ADMIN'}">Edit users</a>
 
 </div>
