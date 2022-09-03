@@ -64,7 +64,8 @@ public class AddObjectsController {
         picture.setUser(user);
         entitySaver.persistEntity(picture);
         sessionService.setCitiesCountriesAndYears();
-        return "redirect:/upload";
+//        redirect idzie na controller
+        return "redirect:/add/picture";
     }
 
     @RequestMapping(value = "/country/add", method = RequestMethod.GET)
@@ -120,7 +121,7 @@ public class AddObjectsController {
         model.addAttribute("cities", this.citiesService.getAllCities());
         model.addAttribute("city", new City());
 
-        return "test4";
+        return "test/test4";
     }
     @RequestMapping(value = "/test", method = RequestMethod.POST)
     public String test(@RequestParam("cityId") int id, Model model){
@@ -128,7 +129,7 @@ public class AddObjectsController {
         System.out.println(city.getId());
         System.out.println(city.getNameEng());
         model.addAttribute("city", city);
-        return "show-test";
+        return "test/show-test";
     }
 
 }

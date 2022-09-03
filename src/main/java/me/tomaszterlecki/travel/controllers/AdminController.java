@@ -30,6 +30,7 @@ public class AdminController {
             return "index";
         }
         authenticationService.addCommonInfoToModel(model);
+
         return "/admin/admin-panel";
     }
 
@@ -39,14 +40,18 @@ public class AdminController {
             return "index";
         }
         authenticationService.addCommonInfoToModel(model);
-        model.addAttribute("countries", countriesService.getAllCountries());
 
+        model.addAttribute("countries", countriesService.getAllCountries());
         return "/admin/edit-countries";
     }
 
-    @RequestMapping(value="edit/cities")
+    @RequestMapping(value="edit/cities",method = RequestMethod.GET)
     public String editCityPanel(Model model){
-        model.addAttribute("city", new City());
+        if(!this.sessionObject.isLogged()) {
+            return "index";
+        }
+        authenticationService.addCommonInfoToModel(model);
+
         model.addAttribute("elements", citiesService.getAllCitiesInAllCountries());
         return "/admin/edit-cities";
     }

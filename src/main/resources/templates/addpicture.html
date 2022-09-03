@@ -14,7 +14,7 @@
     <h1>Add picture</h1>
 
     <div class="add-picture">
-        <form th:action="@{/upload}" method="post" enctype="multipart/form-data" th:object="${picture}">
+        <form th:action="@{/add/picture}" method="post" enctype="multipart/form-data" th:object="${picture}">
             <input type="text" th:placeholder="description" th:field="*{description}">
             <br>
 

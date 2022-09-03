@@ -4,7 +4,7 @@ function getCities(countriesAndCities) {
     selectCitiesDiv.removeChild(document.getElementById("city"));
 
     const selectCountries = document.getElementById("country");
-    document.getElementById("city-test").innerText = selectCountries.selectedIndex;
+    document.getElementById("city").innerText = selectCountries.selectedIndex;
 
     let citiesSelect = document.createElement("select");
     citiesSelect.id = "city";

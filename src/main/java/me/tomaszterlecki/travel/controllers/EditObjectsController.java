@@ -34,6 +34,7 @@ public class EditObjectsController {
             return "index";
         }
         authenticationService.addCommonInfoToModel(model);
+
         Country country = countriesService.getCountryByID(countryId);
         model.addAttribute(country);
         return "/admin/edit-country";
@@ -44,6 +45,7 @@ public class EditObjectsController {
             return "index";
         }
         authenticationService.addCommonInfoToModel(model);
+
         entitySaver.updateEntity(country);
         return "redirect:/edit/countries";
     }
@@ -53,12 +55,18 @@ public class EditObjectsController {
             return "index";
         }
         authenticationService.addCommonInfoToModel(model);
+
         Country country = countriesService.getCountryByID(countryId);
         entitySaver.deleteEntity(country);
         return "redirect:/edit/countries";
     }
     @RequestMapping(value = "edit/city/{cityId}", method = RequestMethod.GET)
     public String editCity(Model model, @PathVariable("cityId") int cityId){
+        if(!this.sessionObject.isLogged()) {
+            return "index";
+        }
+        authenticationService.addCommonInfoToModel(model);
+        
         City city = citiesService.getCityById(cityId);
         model.addAttribute(city);
         return "/admin/edit-country";
