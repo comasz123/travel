@@ -1,7 +1,7 @@
 package me.tomaszterlecki.travel.database;
 
-import me.tomaszterlecki.travel.model.City;
-import me.tomaszterlecki.travel.model.Country;
+import me.tomaszterlecki.travel.model.database.City;
+import me.tomaszterlecki.travel.model.database.Country;
 
 import java.util.List;
 

@@ -1,4 +1,6 @@
-package me.tomaszterlecki.travel.model;
+package me.tomaszterlecki.travel.model.database;
+
+import me.tomaszterlecki.travel.model.IWriteable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity(name="tmonth")
-public class Month implements Writeable {
+public class Month implements IWriteable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

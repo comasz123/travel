@@ -1,11 +1,10 @@
 package me.tomaszterlecki.travel.controllers;
 
-import me.tomaszterlecki.travel.model.City;
-import me.tomaszterlecki.travel.model.Country;
+import me.tomaszterlecki.travel.model.database.City;
+import me.tomaszterlecki.travel.model.database.Country;
 import me.tomaszterlecki.travel.services.ICitiesService;
 import me.tomaszterlecki.travel.services.ICountriesService;
 import me.tomaszterlecki.travel.session.SessionObject;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

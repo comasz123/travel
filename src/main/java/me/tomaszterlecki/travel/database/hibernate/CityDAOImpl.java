@@ -2,6 +2,10 @@ package me.tomaszterlecki.travel.database.hibernate;
 
 import me.tomaszterlecki.travel.database.ICityDAO;
 import me.tomaszterlecki.travel.model.*;
+import me.tomaszterlecki.travel.model.database.City;
+import me.tomaszterlecki.travel.model.database.Country;
+import me.tomaszterlecki.travel.model.database.Picture;
+import me.tomaszterlecki.travel.model.database.User;
 import me.tomaszterlecki.travel.session.SessionObject;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -28,7 +32,7 @@ public class CityDAOImpl implements ICityDAO {
 
         Session session = sessionFactory.openSession();
         Query<City> query = session.createQuery
-                ("FROM me.tomaszterlecki.travel.model.City WHERE country = :country");
+                ("FROM me.tomaszterlecki.travel.model.database.City WHERE country = :country");
         query.setParameter("country", country);
         List<City> result = query.getResultList();
         session.close();
@@ -40,7 +44,7 @@ public class CityDAOImpl implements ICityDAO {
         User user = sessionObject.getUser();
         Session session = sessionFactory.openSession();
         Query<Picture> query = session.createQuery
-                ("FROM me.tomaszterlecki.travel.model.Picture WHERE user=:user");
+                ("FROM me.tomaszterlecki.travel.model.database.Picture WHERE user=:user");
         query.setParameter("user", user);
         List<Picture> pictures = query.getResultList();
         session.close();
@@ -69,7 +73,7 @@ public class CityDAOImpl implements ICityDAO {
     @Override
     public City getCityById(int cityId) {
         Session session = sessionFactory.openSession();
-        Query<City> query = session.createQuery("FROM me.tomaszterlecki.travel.model.City WHERE id=:cityId");
+        Query<City> query = session.createQuery("FROM me.tomaszterlecki.travel.model.database.City WHERE id=:cityId");
         query.setParameter("cityId", cityId);
         City result = query.getSingleResult();
         session.close();
@@ -78,7 +82,7 @@ public class CityDAOImpl implements ICityDAO {
     @Override
     public List<City> getAllCities(){
         Session session = sessionFactory.openSession();
-        Query<City> query = session.createQuery("FROM me.tomaszterlecki.travel.model.City");
+        Query<City> query = session.createQuery("FROM me.tomaszterlecki.travel.model.database.City");
         List<City> result = query.getResultList();
         session.close();
         return result;

@@ -2,6 +2,7 @@ package me.tomaszterlecki.travel.database.hibernate;
 
 import me.tomaszterlecki.travel.database.*;
 import me.tomaszterlecki.travel.model.*;
+import me.tomaszterlecki.travel.model.database.*;
 import me.tomaszterlecki.travel.session.SessionObject;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -43,7 +44,7 @@ public class PictureDAOImpl implements IPicturesDAO {
         Month monthObject = monthDAO.getMonthByNameEng(monthString);
         Session session = sessionFactory.openSession();
         Query query = session.createQuery
-                ("FROM me.tomaszterlecki.travel.model.Picture WHERE year=:year AND month=:month AND user=:user");
+                ("FROM me.tomaszterlecki.travel.model.database.Picture WHERE year=:year AND month=:month AND user=:user");
         query.setParameter("year", year);
         query.setParameter("month", monthObject);
         query.setParameter("user", user);
@@ -66,7 +67,7 @@ public class PictureDAOImpl implements IPicturesDAO {
         User user = sessionObject.getUser();
         Month monthObject = monthDAO.getMonthByNameEng(monthString);
         Session session = sessionFactory.openSession();
-        Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.Picture WHERE " +
+        Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.database.Picture WHERE " +
                 "year=:year AND month=:month AND city=:city AND user=:user");
         query.setParameter("year", year);
         query.setParameter("month", monthObject);
@@ -80,9 +81,10 @@ public class PictureDAOImpl implements IPicturesDAO {
     @Override
     public List<Picture> getPicturesByCity(City city) {
         Session session = sessionFactory.openSession();
-        Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.Picture WHERE city=:city");
+        Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.database.Picture WHERE city=:city");
         query.setParameter("city", city);
         List<Picture> picturesList = query.getResultList();
+        session.close();
         return picturesList;
     }
 
@@ -99,23 +101,13 @@ public class PictureDAOImpl implements IPicturesDAO {
         }
         return result;
     }
-
-    @Override
-    public Picture createPartialPicture(Picture picture) {
-        Month month = monthDAO.getMonthByNameEng("June");
-        Country country = countryDAO.getCountryByNameEng("Poland");
-        City city = cityDAO.getCityById(1);
-        User user = userDAO.getUserById(1);
-
-//        picture.setOrientation(Picture.Orientation.HORIZONTAL);
-        picture.setYear(2000);
-        picture.setMonth(month);
-        picture.setCity(city);
-        picture.setUser(user);
-
-
-
-        return picture;
+    public boolean checkCity(City city){
+        Session session = sessionFactory.openSession();
+        Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.database.Picture WHERE city=:city");
+        query.setParameter("city", city);
+        List<Picture> pictures = query.getResultList();
+        if(pictures.size()>0){return false; }
+        return true;
     }
 
 
@@ -123,7 +115,7 @@ public class PictureDAOImpl implements IPicturesDAO {
     private int[] extractYears() {
         User user = sessionObject.getUser();
         Session session = sessionFactory.openSession();
-        Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.Picture WHERE user=:user");
+        Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.database.Picture WHERE user=:user");
         query.setParameter("user", user);
         List<Picture> picturesForGivenUser = query.getResultList();
         int[] result = getYears(picturesForGivenUser);
@@ -134,7 +126,7 @@ public class PictureDAOImpl implements IPicturesDAO {
 
     private int[] extractYearsForACity(City city) {
         Session session = sessionFactory.openSession();
-        Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.Picture WHERE city=:city");
+        Query query = session.createQuery("FROM me.tomaszterlecki.travel.model.database.Picture WHERE city=:city");
         query.setParameter("city", city);
         List<Picture> allPicturesForACity = query.getResultList();
         int[] result = getYears(allPicturesForACity);
@@ -147,7 +139,7 @@ public class PictureDAOImpl implements IPicturesDAO {
         User user = sessionObject.getUser();
         Session session = sessionFactory.openSession();
         Query query = session.createQuery
-                ("FROM me.tomaszterlecki.travel.model.Picture WHERE year=:year AND user=:user");
+                ("FROM me.tomaszterlecki.travel.model.database.Picture WHERE year=:year AND user=:user");
         query.setParameter("year", year);
         query.setParameter("user", user);
         List<Picture> pictures = query.getResultList();
@@ -159,7 +151,7 @@ public class PictureDAOImpl implements IPicturesDAO {
     private String[] getMonthsForAGivenYearAndCity(int year, City city) {
         Session session = sessionFactory.openSession();
         Query query = session.createQuery
-                ("FROM me.tomaszterlecki.travel.model.Picture WHERE year=:year AND city=:city");
+                ("FROM me.tomaszterlecki.travel.model.database.Picture WHERE year=:year AND city=:city");
         query.setParameter("year", year);
         query.setParameter("city", city);
         List<Picture> pictures = query.getResultList();
@@ -208,7 +200,7 @@ public class PictureDAOImpl implements IPicturesDAO {
     private int[] getYearsByCity(City city) {
         Session session = sessionFactory.openSession();
         Query<Picture> query = session.createQuery
-                ("FROM me.tomaszterlecki.travel.model.Picture WHERE city =:city");
+                ("FROM me.tomaszterlecki.travel.model.database.Picture WHERE city =:city");
         query.setParameter("city", city);
         List<Picture> pictures = query.getResultList();
         session.close();

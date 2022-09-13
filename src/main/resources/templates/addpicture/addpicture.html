@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/links.css">
+    <script src="/scripts/select.js"></script>
     <title>Travel Memories</title>
 </head>
 
@@ -27,19 +29,16 @@
             <br>
             <label>Country:</label>
             <div id="select-boxes">
-                <select name="country">
-                    <option value="0" selected="pick country">pick country</option>
-                    <option th:each="country : ${countries}"
-                            th:text="${country.nameEng}"
-                            th:value="${country.id}"
-                    ></option>
+                <!--      <select id="country" th:onchange="|getCities('${elements}')|">-->
+                <select id="country" onchange="update()">
+                    <option value="0" text="pick country" selected="pick country">pick country</option>
+                    <div th:each="element : ${elements}">
+                        <option th:value="${element.country.id}"
+                                th:text="${element.country.nameEng}"></option>
+                    </div>
                 </select>
-                <select name="city" th:field="*{city.id}">
-                    <option value="0">pick city</option>
-                    <option th:each="city : ${cities}"
-                            th:value="${city.id}"
-                            th:text="${city.nameEng}"
-                    ></option>
+                <select id="city" name="cityId">
+                    <option value="0" text="pick city" selected="pick city">pick city</option>
                 </select>
             </div>
             <input type="number" value="year" text="year" th:field="*{year}">Year</input>
@@ -54,10 +53,18 @@
             <input type="submit" value="OK"/>
         </form>
         <br>
-        <a href="/country/add">Add Country</a>
+        <a href="/add/picture/country">Add Country</a>
         <br>
-        <a href="/city/add">Add City</a>
+        <a href="/add/picture/city">Add City</a>
     </div>
 </div>
+<script th:inline="javascript">
+
+    function update() {
+        let countriesAndCities = [[${elements}]];
+        getCities(countriesAndCities);
+    }
+</script>
+
 </body>
 </html>

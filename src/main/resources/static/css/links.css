@@ -57,3 +57,7 @@
 .edit-countries-table:hover {
     color: red;
 }
+.add-city-admin {
+    text-decoration: none;
+    margin: 10px 50px;
+}

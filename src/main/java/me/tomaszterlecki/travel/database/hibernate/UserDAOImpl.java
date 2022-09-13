@@ -1,7 +1,7 @@
 package me.tomaszterlecki.travel.database.hibernate;
 
 import me.tomaszterlecki.travel.database.IUserDAO;
-import me.tomaszterlecki.travel.model.User;
+import me.tomaszterlecki.travel.model.database.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -18,7 +18,7 @@ public class UserDAOImpl implements IUserDAO {
 
     public User getUserById(int id) {
         Session session = sessionFactory.openSession();
-        Query<User> query = session.createQuery("FROM me.tomaszterlecki.travel.model.User WHERE id=:id");
+        Query<User> query = session.createQuery("FROM me.tomaszterlecki.travel.model.database.User WHERE id=:id");
         query.setParameter("id", id);
         User result = query.getSingleResult();
         session.close();
@@ -30,7 +30,7 @@ public class UserDAOImpl implements IUserDAO {
 
         try {
             Query<User> query =
-                    session.createQuery("FROM me.tomaszterlecki.travel.model.User WHERE login=:login");
+                    session.createQuery("FROM me.tomaszterlecki.travel.model.database.User WHERE login=:login");
             query.setParameter("login", login);
             User result = query.getSingleResult();
             session.close();

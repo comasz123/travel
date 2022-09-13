@@ -1,5 +1,8 @@
 package me.tomaszterlecki.travel.model;
 
+import me.tomaszterlecki.travel.model.database.City;
+import me.tomaszterlecki.travel.model.database.Country;
+
 import java.util.List;
 
 public class CitiesForAGivenCountry {

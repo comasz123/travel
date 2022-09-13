@@ -1,8 +1,10 @@
-package me.tomaszterlecki.travel.model;
+package me.tomaszterlecki.travel.model.database;
+import me.tomaszterlecki.travel.model.IWriteable;
+
 import javax.persistence.*;
 
 @Entity(name = "tuser")
-public class User implements Writeable {
+public class User implements IWriteable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

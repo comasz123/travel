@@ -2,6 +2,9 @@ package me.tomaszterlecki.travel.services.impl;
 
 import me.tomaszterlecki.travel.database.IPicturesDAO;
 import me.tomaszterlecki.travel.model.*;
+import me.tomaszterlecki.travel.model.database.City;
+import me.tomaszterlecki.travel.model.database.Country;
+import me.tomaszterlecki.travel.model.database.Picture;
 import me.tomaszterlecki.travel.services.IPicturesService;
 import me.tomaszterlecki.travel.session.SessionObject;
 import org.springframework.beans.factory.annotation.Autowired;

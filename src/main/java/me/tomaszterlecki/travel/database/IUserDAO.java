@@ -1,6 +1,6 @@
 package me.tomaszterlecki.travel.database;
 
-import me.tomaszterlecki.travel.model.User;
+import me.tomaszterlecki.travel.model.database.User;
 
 import java.util.Optional;
 

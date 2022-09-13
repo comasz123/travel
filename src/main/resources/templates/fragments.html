@@ -6,19 +6,32 @@
     <title>Travel Memories</title>
 </head>
 <body>
-<div class="main-menu" id="menu-eng" th:fragment="menu-eng">
-    <div class="menu-div">
-        <div class="logo">
-            <img src="/img/logo.jpg" alt="logo">
-        </div>
-        <a href="/years">Years</a>
-        <a href="/countries">Countries</a>
-        <a href="/admin">Manage</a>
-        <a href="/login" th:if="${logged == false}">Login</a>
-        <a href="/logout" th:if="${logged == true}">Wyloguj</a>
 
-        <div class="login-info" th:if="${logged == true}" th:text="'Zalogowany jako: ' + ${user.name}" id="user-login"></div>
+<div class="main-menu" id="menu-eng" th:fragment="menu-eng">
+    <div class="logo">
+        <img src="/img/earth_small_white.jpg" alt="logo">
+    </div>
+    <div class="menu-div">
+
+        <a class="menu-item" href="/years">Years</a>
+        <a class="menu-item" href="/countries">Countries</a>
+        <a class="menu-item" href="/admin">Manage</a>
+        <a class="menu-item" href="/login" th:if="${logged == false}">Login</a>
+        <a class="menu-item" href="/logout" th:if="${logged == true}">Wyloguj</a>
+
+        <div class="login-info" th:if="${logged == true}" th:text="'Zalogowany jako: ' + ${user.name}"
+             id="user-login"></div>
     </div>
 </div>
+
+<div class="header" th:fragment="header-eng">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Travel Memories</title>
+</div>
+
 </body>
 </html>

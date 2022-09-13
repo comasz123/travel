@@ -2,10 +2,12 @@ package me.tomaszterlecki.travel.services.impl;
 
 import me.tomaszterlecki.travel.database.ICityDAO;
 import me.tomaszterlecki.travel.database.ICountryDAO;
+import me.tomaszterlecki.travel.database.IPicturesDAO;
 import me.tomaszterlecki.travel.model.CitiesForAGivenCountry;
-import me.tomaszterlecki.travel.model.City;
-import me.tomaszterlecki.travel.model.Country;
+import me.tomaszterlecki.travel.model.database.City;
+import me.tomaszterlecki.travel.model.database.Country;
 import me.tomaszterlecki.travel.services.ICitiesService;
+import me.tomaszterlecki.travel.services.IPicturesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,8 @@ public class CitiesServiceImpl implements ICitiesService {
     ICityDAO cityDAO;
     @Autowired
     ICountryDAO countryDAO;
+    @Autowired
+    IPicturesDAO picturesDAO;
 
     @Override
     public List<City> getAllCitiesByCountry(Country country) {
@@ -40,6 +44,11 @@ public class CitiesServiceImpl implements ICitiesService {
     @Override
     public List<City> getAllCities(){
         return this.cityDAO.getAllCities();
+    }
+    @Override
+    public boolean checkCityToDelete(int cityId){
+        City city = cityDAO.getCityById(cityId);
+        return picturesDAO.checkCity(city);
     }
 
 }

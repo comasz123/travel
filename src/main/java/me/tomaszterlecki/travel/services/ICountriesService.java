@@ -1,6 +1,6 @@
 package me.tomaszterlecki.travel.services;
 
-import me.tomaszterlecki.travel.model.Country;
+import me.tomaszterlecki.travel.model.database.Country;
 
 import java.util.List;
 

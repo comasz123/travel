@@ -1,4 +1,4 @@
 package me.tomaszterlecki.travel.model;
 
-public interface Writeable {
+public interface IWriteable {
 }

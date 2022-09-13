@@ -2,7 +2,7 @@ package me.tomaszterlecki.travel.session;
 
 import me.tomaszterlecki.travel.model.CitiesForAGivenCountry;
 import me.tomaszterlecki.travel.model.MonthsForAGivenYear;
-import me.tomaszterlecki.travel.model.User;
+import me.tomaszterlecki.travel.model.database.User;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 

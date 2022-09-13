@@ -1,12 +1,10 @@
 package me.tomaszterlecki.travel.controllers;
 
-import me.tomaszterlecki.travel.model.City;
-import me.tomaszterlecki.travel.model.Picture;
+import me.tomaszterlecki.travel.model.database.City;
 import me.tomaszterlecki.travel.services.IAuthenticationService;
 import me.tomaszterlecki.travel.services.IPicturesService;
 import me.tomaszterlecki.travel.session.SessionObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;

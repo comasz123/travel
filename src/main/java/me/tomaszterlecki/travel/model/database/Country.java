@@ -1,26 +1,27 @@
-package me.tomaszterlecki.travel.model;
+package me.tomaszterlecki.travel.model.database;
+
+import me.tomaszterlecki.travel.model.IWriteable;
 
 import javax.persistence.*;
 
-@Entity(name = "tcity")
-public class City implements Writeable {
+@Entity(name = "tcountry")
+public class Country implements IWriteable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(unique = true)
     private String nameEng;
-
+    @Column(unique = true)
     private String namePol;
-    @ManyToOne
-    private Country country;
 
-    public City() {
+    public Country() {
     }
 
-    public City(int id, String nameEng, String namePol, Country country) {
+    public Country(int id, String nameEng, String namePol) {
         this.id = id;
         this.nameEng = nameEng;
         this.namePol = namePol;
-        this.country = country;
     }
 
     public int getId() {
@@ -45,13 +46,5 @@ public class City implements Writeable {
 
     public void setNamePol(String namePol) {
         this.namePol = namePol;
-    }
-
-    public Country getCountry() {
-        return country;
-    }
-
-    public void setCountry(Country country) {
-        this.country = country;
     }
 }

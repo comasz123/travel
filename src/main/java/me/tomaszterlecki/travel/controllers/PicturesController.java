@@ -1,7 +1,7 @@
 package me.tomaszterlecki.travel.controllers;
 
-import me.tomaszterlecki.travel.model.City;
-import me.tomaszterlecki.travel.model.Picture;
+import me.tomaszterlecki.travel.model.database.City;
+import me.tomaszterlecki.travel.model.database.Picture;
 import me.tomaszterlecki.travel.services.IAuthenticationService;
 import me.tomaszterlecki.travel.services.ICitiesService;
 import me.tomaszterlecki.travel.services.IPicturesService;

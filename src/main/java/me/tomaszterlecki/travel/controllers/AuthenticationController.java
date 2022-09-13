@@ -1,7 +1,7 @@
 package me.tomaszterlecki.travel.controllers;
 
 import me.tomaszterlecki.travel.exceptions.ValidationException;
-import me.tomaszterlecki.travel.model.User;
+import me.tomaszterlecki.travel.model.database.User;
 import me.tomaszterlecki.travel.services.IAuthenticationService;
 import me.tomaszterlecki.travel.session.SessionObject;
 import me.tomaszterlecki.travel.validators.UserDataValidator;

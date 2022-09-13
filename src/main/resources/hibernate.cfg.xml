@@ -15,10 +15,10 @@
         <property name="hibernate.hbm2ddl.auto">none</property>
         <property name="connection.pool_size">20</property>
 
-        <mapping class="me.tomaszterlecki.travel.model.Month"/>
-        <mapping class="me.tomaszterlecki.travel.model.User"/>
-        <mapping class="me.tomaszterlecki.travel.model.City"/>
-        <mapping class="me.tomaszterlecki.travel.model.Country"/>
-        <mapping class="me.tomaszterlecki.travel.model.Picture"/>
+        <mapping class="me.tomaszterlecki.travel.model.database.Month"/>
+        <mapping class="me.tomaszterlecki.travel.model.database.User"/>
+        <mapping class="me.tomaszterlecki.travel.model.database.City"/>
+        <mapping class="me.tomaszterlecki.travel.model.database.Country"/>
+        <mapping class="me.tomaszterlecki.travel.model.database.Picture"/>
     </session-factory>
 </hibernate-configuration>

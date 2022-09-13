@@ -1,6 +1,6 @@
 package me.tomaszterlecki.travel.database;
 
-import me.tomaszterlecki.travel.model.Month;
+import me.tomaszterlecki.travel.model.database.Month;
 
 import java.util.List;
 

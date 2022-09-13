@@ -2,7 +2,7 @@ package me.tomaszterlecki.travel.database.hibernate;
 
 import me.tomaszterlecki.travel.database.ICityDAO;
 import me.tomaszterlecki.travel.database.ICountryDAO;
-import me.tomaszterlecki.travel.model.Country;
+import me.tomaszterlecki.travel.model.database.Country;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -20,7 +20,7 @@ public class CountryDAOImpl implements ICountryDAO {
 
     public List<Country> getAllCountries() {
         Session session = this.sessionFactory.openSession();
-        Query<Country> query = session.createQuery("FROM me.tomaszterlecki.travel.model.Country");
+        Query<Country> query = session.createQuery("FROM me.tomaszterlecki.travel.model.database.Country");
         List<Country> countries = query.getResultList();
         session.close();
         return getCountryNamesSortedInEng(countries);
@@ -29,7 +29,7 @@ public class CountryDAOImpl implements ICountryDAO {
     @Override
     public Country getCountryByNameEng(String nameEng) {
         Session session = this.sessionFactory.openSession();
-        Query<Country> query = session.createQuery("FROM me.tomaszterlecki.travel.model.Country WHERE nameEng = :nameEng");
+        Query<Country> query = session.createQuery("FROM me.tomaszterlecki.travel.model.database.Country WHERE nameEng = :nameEng");
         query.setParameter("nameEng", nameEng);
         Country result = query.getSingleResult();
         session.close();
@@ -38,7 +38,7 @@ public class CountryDAOImpl implements ICountryDAO {
     @Override
     public Country getCountryByID(int id){
         Session session = this.sessionFactory.openSession();
-        Query<Country> query = session.createQuery("FROM me.tomaszterlecki.travel.model.Country WHERE id = :id");
+        Query<Country> query = session.createQuery("FROM me.tomaszterlecki.travel.model.database.Country WHERE id = :id");
         query.setParameter("id", id);
         Country result = query.getSingleResult();
         session.close();
@@ -49,7 +49,7 @@ public class CountryDAOImpl implements ICountryDAO {
 //    public List<CitiesForAGivenCountry> getAllCitiesInAllCountries(){
 //
 //        Session session = this.sessionFactory.openSession();
-//        Query<Country> query = session.createQuery("FROM me.tomaszterlecki.travel.model.Country");
+//        Query<Country> query = session.createQuery("FROM me.tomaszterlecki.travel.model.database.Country");
 //        List<Country> countries = query.getResultList();
 //        session.close();
 //        List<Country> countryNamesSorted = getCountryNamesSortedInEng(countries);

@@ -2,7 +2,7 @@ package me.tomaszterlecki.travel.services.impl;
 
 import me.tomaszterlecki.travel.database.ICountryDAO;
 import me.tomaszterlecki.travel.model.CitiesForAGivenCountry;
-import me.tomaszterlecki.travel.model.Country;
+import me.tomaszterlecki.travel.model.database.Country;
 import me.tomaszterlecki.travel.services.ICountriesService;
 import me.tomaszterlecki.travel.session.SessionObject;
 import org.springframework.beans.factory.annotation.Autowired;

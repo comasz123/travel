@@ -1,6 +1,9 @@
 package me.tomaszterlecki.travel.services;
 
 import me.tomaszterlecki.travel.model.*;
+import me.tomaszterlecki.travel.model.database.City;
+import me.tomaszterlecki.travel.model.database.Country;
+import me.tomaszterlecki.travel.model.database.Picture;
 
 import java.util.List;
 

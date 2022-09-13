@@ -9,6 +9,7 @@
 
 <body>
 <div th:replace="fragments.html :: #menu-eng"></div>
+
 <div class="content">
     <form method="POST" th:object="${city}">
         <input type="text" placeholder="Name in English" th:field="*{nameEng}">
@@ -22,7 +23,7 @@
         </select>
         <input type="submit" value="OK">
     </form>
-    <a class="edit-countries-table" href="/admin/country/add">Add Country</a>
+    <a class="edit-countries-table" href="/add/picture/country">Add Country</a>
 
 
 </div>

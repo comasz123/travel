@@ -1,7 +1,7 @@
 package me.tomaszterlecki.travel.database.hibernate;
 
 import me.tomaszterlecki.travel.database.IEntitySaver;
-import me.tomaszterlecki.travel.model.Writeable;
+import me.tomaszterlecki.travel.model.IWriteable;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -14,7 +14,7 @@ public class EntitySaveImpl implements IEntitySaver {
     SessionFactory sessionFactory;
 
     @Override
-    public void persistEntity(Writeable entity) {
+    public void persistEntity(IWriteable entity) {
         Session session = this.sessionFactory.openSession();
         Transaction tx = null;
         try {
@@ -32,7 +32,7 @@ public class EntitySaveImpl implements IEntitySaver {
     }
 
     @Override
-    public void updateEntity(Writeable entity) {
+    public void updateEntity(IWriteable entity) {
         Session session = this.sessionFactory.openSession();
         Transaction tx = null;
         try {
@@ -50,7 +50,7 @@ public class EntitySaveImpl implements IEntitySaver {
     }
 
     @Override
-    public void deleteEntity(Writeable entity) {
+    public void deleteEntity(IWriteable entity) {
         Session session = this.sessionFactory.openSession();
         Transaction tx = null;
         try {
