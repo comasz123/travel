@@ -34,6 +34,7 @@ public class YearsController {
     }
     @RequestMapping(value="/years/{year}/{month}", method = RequestMethod.GET)
     public String getCitiesForYear(Model model, @PathVariable int year, @PathVariable String month){
+
         model.addAttribute("year", year);
         model.addAttribute("month", month);
         List<City> cities = picturesService.getAllCitiesForADate(year, month);

@@ -14,19 +14,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.annotation.Resource;
 
 @Controller
+@RequestMapping(value="admin")
 public class AddObjectsController {
     @Resource
     SessionObject sessionObject;
     @Autowired
     IEntitySaver entitySaver;
 
-    @RequestMapping(value = "/add/country", method = RequestMethod.GET)
+    @RequestMapping(value = "/country/add", method = RequestMethod.GET)
     public String addCountryAdmin(Model model) {
         if(!this.sessionObject.isLogged()) {
             return "index";
         }
         model.addAttribute("country", new Country());
-        return "add-country";
+        return "addobjects/add-country";
     }
 
     @RequestMapping(value = "/country/add", method = RequestMethod.POST)
