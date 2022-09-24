@@ -17,7 +17,7 @@
     </div>
     <div class="picture" th:each="picture : ${pictures}">
         <div th:class="${picture.getOrientation().equals(picture.getOrientation().VERTICAL) ? 'picture-vertical' : 'picture-horizontal'}">
-            <img th:src="@{/img/{picture} (picture=${picture.getFileName()})}"/>
+            <img th:src="@{/files/{picture} (picture=${picture.getFileName()})}"/>
         </div>
     </div>
 

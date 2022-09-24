@@ -22,7 +22,9 @@ public class AppConfiguration {
         public void addResourceHandlers(ResourceHandlerRegistry registry) {
             registry
                     .addResourceHandler("/files/**")
-                    .addResourceLocations("file:/Users/tomaszterlecki/Desktop/travel_img/");
+                    .addResourceLocations("file:/Users/tomaszterlecki/Desktop/travel_img/",
+                            "file:/Users/tomaszterlecki/Desktop/Comarch/travel/src/main/resources/static/css/",
+                            "file:/Users/tomaszterlecki/Desktop/Comarch/travel/src/main/resources/static/scripts/");
         }
     }
 }
